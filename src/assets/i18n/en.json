@@ -1,0 +1,226 @@
+{
+  "menu": {
+    "home": "Home",
+    "purchase": "Purchase",
+    "product": "Product",
+    "stock": "Stock",
+    "saveYesNoDialog": {
+      "title": "Confirm Sign Out",
+      "message": "Sign out of the system?",
+      "captionYes": "Yes",
+      "captionNo": "No"
+    },
+    "tooltip": {
+      "home": "Returns to home screen.",
+      "subMenu": {
+        "purchase-history-listing": "Lists purchase history.",
+        "dummy-purchasing": "Tests registration of purchase data.",
+        "product-listing": "Displays Product List and change registration.",
+        "stock-registering": "Registers product stock."
+      },
+      "signOut": "Signs out of the system."
+    }
+  },
+  "subMenu": {
+    "purchase-history-listing": "Purchase History List",
+    "dummy-purchasing": "Purchase Registration (for test)",
+    "product-listing": "Product List",
+    "stock-registering": "Stock Registration"
+  },
+  "title": {
+    "system": "【Example Site】",
+    "purchase-history-listing": "Purchase History list",
+    "dummy-purchasing": "Purchase Registration (for test)",
+    "product-listing": "Product List",
+    "product-registering": "Product Registration",
+    "stock-registering": "Stock Registration",
+    "sign-in": "Sign In"
+  },
+  "signInPage": {
+    "userAccount": "User Account",
+    "userPassword": "User Password",
+    "signInButton": "Sign In"
+  },
+  "productListingPage": {
+    "title": "Product List",
+    "no": "No.",
+    "productName": "Product Name",
+    "productCode": "Product Code",
+    "productGenre": "Product Genre",
+    "productImage": "Product Image",
+    "productSizeStandard": "Product Size/Standard",
+    "productColor": "Product Color",
+    "productUnitPrice": "Product Unit Price",
+    "productStockQuantity": "Product Stock Quantity",
+    "endOfSale": "End of Sale",
+    "endOfSaleValue": {
+      "true": "Ended",
+      "false": "-"
+    },
+    "newButton": "New",
+    "clearButton": "Clear",
+    "searchButton": "Search",
+    "tooltip": {
+      "endOfSale": "If the check is ON, all records including the End of Sales will be acquired.",
+      "newBtn": "Move to the product registration screen."
+    }
+  },
+  "productRegisteringPage": {
+    "title": {
+      "new": "Register product",
+      "edit": "Edit product"
+    },
+    "productCode": "* Product Code",
+    "productName": "* Product Name",
+    "productGenre": "* Product Genre",
+    "productImage": "Product Image",
+    "productSizeStandard": "* Product Size/Standard",
+    "productColor": "Product Color",
+    "productUnitPrice": "* Product Unit Price",
+    "endOfSale": "End of Sale",
+    "endOfSaleDate": "* End of Sale Date",
+    "returnButton": "Return",
+    "saveButton": {
+      "new": "Register",
+      "edit": "Save"
+    },
+    "imageUploadButton": "Upload image",
+    "imageClearButton": "Clear image",
+    "tooltip": {
+      "endOfSale": "Check the box if you want to end the sale.",
+      "endOfSaleDate": "Enter the date you checked the end of the sale.",
+      "returnButton": "Return to Product List screen.",
+      "saveButton": "Save your input.",
+      "imageUploadButton": "Select an image to upload.",
+      "imageClearButton": "Clear uploaded image."
+    },
+    "saveYesNoDialog": {
+      "title": "Confirm save",
+      "message": "Save your entries?",
+      "captionYes": "Yes",
+      "captionNo": "No"
+    }
+  },
+  "PurchaseHistoryListingPage": {
+    "title": "Purchase history list",
+    "no": "No.",
+    "productPurchaseName": "Product Purchase Name",
+    "productName": "Product Name",
+    "productPurchaseDateFrom": "Purchase Date From",
+    "productPurchaseDateTo": "Purchase Date To",
+    "productCode": "Product Code",
+    "productImage": "Product Image",
+    "productPurchaseDate": "Purchase Date and time",
+    "productPurchaseUnitPrice": "Purchase Unit Price",
+    "productPurchaseQuantity": "Purchase Quantity",
+    "productPurchaseAmount": "Purchase Amount",
+    "clearButton": "Clear",
+    "searchButton": "Search"
+  },
+  "dummyPurchasingPage": {
+    "title": "Purchase registration (for test)",
+    "productCode": "* Product Code",
+    "productName": "Product Name",
+    "productGenre": "Product Genre",
+    "productImage": "Product Image",
+    "productSizeStandard": "Product Size/Standard",
+    "productColor": "Product Color",
+    "productPurchaseUnitPrice": "Product Purchase Unit Price",
+    "productStockQuantity": "Product Stock Quantity",
+    "productPurchaseName": "* Product Purchase Name",
+    "productPurchaseQuantity": "* Product Purchase Quantity",
+    "productPurchaseAmount": "Product Purchase Amount",
+    "saveButton": "Register",
+    "validationError": {
+      "productNotExistError": "Please re-enter product code.",
+      "exceedStockError": "Out of stock"
+    },
+    "tooltip": {
+      "saveButton": "Register your input.",
+      "purchaseName": "Enter the buyer's name."
+    },
+    "saveYesNoDialog": {
+      "title": "Confirm save",
+      "message": "Save your entries?",
+      "captionYes": "Yes",
+      "captionNo": "No"
+    }
+  },
+  "stockRegisteringPage": {
+    "title": "Stock registration",
+    "productCode": "* Product Code",
+    "productName": "Product Name",
+    "productGenre": "Product Genre",
+    "productImage": "Product Image",
+    "productSizeStandard": "Product Size/Standard",
+    "productColor": "Product Color",
+    "productPurchaseUnitPrice": "Product Purchase Unit Price",
+    "productStockQuantity": "Product Stock Quantity",
+    "addStockQuantity": "* Add Stock Quantity",
+    "saveButton": "Register",
+    "validationError": {
+      "productNotExistError": "Please re-enter product code."
+    },
+    "tooltip": {
+      "returnButton": "Return to Product List screen.",
+      "saveButton": "Register your input."
+    },
+    "saveYesNoDialog": {
+      "title": "Confirm save",
+      "message": "Save your entries?",
+      "captionYes": "Yes",
+      "captionNo": "No"
+    }
+  },
+  "genre": {
+    "1": "Sneakers and shoes",
+    "2": "Tops",
+    "3": "Bags"
+  },
+  "Items per page:": "Items per page:",
+  "Next page": "Next page",
+  "Previous page": "Previous page",
+  "validationError": {
+    "required": "Required field.",
+    "pattern": {
+      "singleByteAlphanumeric": "Please enter half-width alphanumeric characters.",
+      "halfWidthNumericComma": "Please enter a number."
+    },
+    "min": "Below the minimum number.",
+    "maxlength9": "Max 9 digits can be entered."
+  },
+  "tooltip": {
+    "searchCriteria": {
+      "prefixMatching": "Search for characters that match the beginning.",
+      "pullDown": "Search using pulldown."
+    },
+    "registerValue": {
+      "input": {
+        "alphaNumeric": "Enter alphanumeric characters.",
+        "numeric": "Enter a number.",
+        "all": "Enter double-byte and single-byte alphanumeric characters."
+      },
+      "pulldown": "Choose one of the options."
+    },
+    "searchBtn": {
+      "clearBtn": "Clear search screen.",
+      "searchBtn": "Perform a search."
+    }
+  },
+  "successMessage": {
+    "http": "Register process completed."
+  },
+  "errMessage": {
+    "http": {
+      "badRequest": "The input information is incorrect.",
+      "unAuthorized": "Unauthorized.",
+      "notFound": "Page not found.",
+      "datNotFoundException": "Data does not exist.",
+      "duplicateKeyException": "Information for the same key has already been registered.",
+      "exclusiveProcessingException": "The other user has changed the same data, please get the latest information.",
+      "outOfStockException": "Out of stock.",
+      "internalServerError": "An error occurred in the server.",
+      "GenericError": "Communication with server failed."
+    }
+  }
+}
