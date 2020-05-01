@@ -1,0 +1,226 @@
+{
+  "menu": {
+    "home": "ホーム",
+    "purchase": "購入",
+    "product": "商品",
+    "stock": "在庫",
+    "saveYesNoDialog": {
+      "title": "ログアウトの確認",
+      "message": "システムからログアウトしますか？",
+      "captionYes": "はい",
+      "captionNo": "いいえ"
+    },
+    "tooltip": {
+      "home": "ホーム画面へ戻ります。",
+      "subMenu": {
+        "purchase-history-listing": "購入履歴の一覧表示をおこないます。",
+        "dummy-purchasing": "購入データをテスト登録します。",
+        "product-listing": "商品の一覧表示と登録変更をおこないます。",
+        "stock-registering": "商品の在庫を登録します。"
+      },
+      "signOut": "システムからログアウトします。"
+    }
+  },
+  "subMenu": {
+    "purchase-history-listing": "購入履歴",
+    "dummy-purchasing": "購入登録(テスト用)",
+    "product-listing": "商品一覧",
+    "stock-registering": "在庫登録"
+  },
+  "title": {
+    "system": "【Example Site】",
+    "purchase-history-listing": "購入履歴",
+    "dummy-purchasing": "購入登録(テスト用)",
+    "product-listing": "商品一覧",
+    "product-registering": "商品登録/編集",
+    "stock-registering": "在庫登録",
+    "sign-in": "ログイン"
+  },
+  "signInPage": {
+    "userAccount": "ユーザアカウント",
+    "userPassword": "パスワード",
+    "signInButton": "サインイン"
+  },
+  "productListingPage": {
+    "title": "商品一覧",
+    "no": "No.",
+    "productName": "商品名",
+    "productCode": "商品コード",
+    "productGenre": "ジャンル",
+    "productImage": "イメージ",
+    "productSizeStandard": "サイズ・規格",
+    "productColor": "色",
+    "productUnitPrice": "単価",
+    "productStockQuantity": "在庫数",
+    "endOfSale": "販売終了",
+    "endOfSaleValue": {
+      "true": "終了",
+      "false": "-"
+    },
+    "newButton": "新規",
+    "clearButton": "クリア",
+    "searchButton": "検索",
+    "tooltip": {
+      "endOfSale": "チェックONの場合、販売終了を含む全レコードを取得します。",
+      "newBtn": "商品の登録画面へ遷移します。"
+    }
+  },
+  "productRegisteringPage": {
+    "title": {
+      "new": "商品登録",
+      "edit": "商品更新"
+    },
+    "productCode": "* 商品コード",
+    "productName": "* 商品名",
+    "productGenre": "* ジャンル",
+    "productImage": "商品イメージ",
+    "productSizeStandard": "* サイズ・規格",
+    "productColor": "色",
+    "productUnitPrice": "* 単価",
+    "endOfSale": "販売終了",
+    "endOfSaleDate": "* 販売終了日",
+    "returnButton": "戻る",
+    "saveButton": {
+      "new": "登録",
+      "edit": "更新"
+    },
+    "imageUploadButton": "画像のアップロード",
+    "imageClearButton": "画像のクリア",
+    "tooltip": {
+      "endOfSale": "販売を終了したい場合にチェックをONにします。",
+      "endOfSaleDate": "販売の終了をチェックした日を入力します。",
+      "returnButton": "商品一覧画面に戻ります。",
+      "saveButton": "入力した内容を保存します。",
+      "imageUploadButton": "アップロードする画像を選択します。",
+      "imageClearButton": "アップロード画像をクリアします。"
+    },
+    "saveYesNoDialog": {
+      "title": "保存の確認",
+      "message": "入力した内容を保存しますか？",
+      "captionYes": "はい",
+      "captionNo": "いいえ"
+    }
+  },
+  "PurchaseHistoryListingPage": {
+    "title": "購入履歴一覧",
+    "no": "No.",
+    "productPurchaseName": "購入者",
+    "productName": "商品名",
+    "productPurchaseDateFrom": "購入日From",
+    "productPurchaseDateTo": "購入日To",
+    "productCode": "商品コード",
+    "productImage": "イメージ",
+    "productPurchaseDate": "注文日時",
+    "productPurchaseUnitPrice": "購入単価",
+    "productPurchaseQuantity": "購入数量",
+    "productPurchaseAmount": "購入金額",
+    "clearButton": "クリア",
+    "searchButton": "検索"
+  },
+  "dummyPurchasingPage": {
+    "title": "購入ダミー",
+    "productCode": "* 商品コード",
+    "productName": "商品名",
+    "productGenre": "ジャンル",
+    "productImage": "商品イメージ",
+    "productSizeStandard": "サイズ・規格",
+    "productColor": "色",
+    "productPurchaseUnitPrice": "購入単価",
+    "productStockQuantity": "在庫数",
+    "productPurchaseName": "* 購入者",
+    "productPurchaseQuantity": "* 購入数量",
+    "productPurchaseAmount": "購入金額",
+    "saveButton": "登録",
+    "validationError": {
+      "productNotExistError": "商品コードを再度入力してください。",
+      "exceedStockError": "在庫数を超えています"
+    },
+    "tooltip": {
+      "saveButton": "入力した内容を保存します。",
+      "purchaseName": "購入者の氏名を入力します。"
+    },
+    "saveYesNoDialog": {
+      "title": "保存の確認",
+      "message": "入力した内容を保存しますか？",
+      "captionYes": "はい",
+      "captionNo": "いいえ"
+    }
+  },
+  "stockRegisteringPage": {
+    "title": "在庫登録",
+    "productCode": "* 商品コード",
+    "productName": "商品名",
+    "productGenre": "ジャンル",
+    "productImage": "商品イメージ",
+    "productSizeStandard": "サイズ・規格",
+    "productColor": "色",
+    "productPurchaseUnitPrice": "購入単価",
+    "productStockQuantity": "在庫数",
+    "addStockQuantity": "* 在庫追加数",
+    "saveButton": "登録",
+    "validationError": {
+      "productNotExistError": "商品コードを再度入力してください。"
+    },
+    "tooltip": {
+      "returnButton": "商品一覧画面に戻ります。",
+      "saveButton": "入力した内容を保存します。"
+    },
+    "saveYesNoDialog": {
+      "title": "保存の確認",
+      "message": "入力した内容を保存しますか？",
+      "captionYes": "はい",
+      "captionNo": "いいえ"
+    }
+  },
+  "genre": {
+    "1": "靴・スニーカー",
+    "2": "トップス",
+    "3": "バッグ"
+  },
+  "Items per page:": "件数：",
+  "Next page": "次ページへ",
+  "Previous page": "前ページへ",
+  "validationError": {
+    "required": "入力が必要な項目です。",
+    "pattern": {
+      "singleByteAlphanumeric": "半角英数を入力してください。",
+      "halfWidthNumericComma": "数値を入力してください。"
+    },
+    "min": "最低数を下回っています。",
+    "maxlength9": "最大9桁までが入力可能です。"
+  },
+  "tooltip": {
+    "searchCriteria": {
+      "prefixMatching": "前方一致の文字検索です。",
+      "pullDown": "プルダウンの検索です。"
+    },
+    "registerValue": {
+      "input": {
+        "alphaNumeric": "半角の英数字を入力します。",
+        "numeric": "数値を入力します。",
+        "all": "全角・半角英数記号を入力します。"
+      },
+      "pulldown": "選択肢の中から1つを選びます。"
+    },
+    "searchBtn": {
+      "clearBtn": "検索画面をクリアします。",
+      "searchBtn": "検索を実行します。"
+    }
+  },
+  "successMessage": {
+    "http": "更新処理が完了しました。"
+  },
+  "errMessage": {
+    "http": {
+      "badRequest": "入力情報が正しくありません。",
+      "unAuthorized": "権限がありません。",
+      "notFound": "ページがみつかりません。",
+      "datNotFoundException": "データが存在しません。",
+      "duplicateKeyException": "同一キーの情報がすでに登録されています。",
+      "exclusiveProcessingException": "他ユーザーが同一データを変更しました、最新情報を取得してください。",
+      "outOfStockException": "在庫が不足しています。",
+      "internalServerError": "サーバ内でエラーが発生しました。",
+      "GenericError": "サーバとの通信に失敗しました。"
+    }
+  }
+}
