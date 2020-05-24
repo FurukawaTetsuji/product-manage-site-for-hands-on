@@ -1,0 +1,57 @@
+/* --------------------------------------------------------------------------------
+ * Sign in page.
+ * -------------------------------------------------------------------------------- */
+.sign-in-page-wrapper {
+  width: 450px;
+  height: 300px;
+  margin: 50px auto 0;
+  padding-top: 100px;
+}
+
+.sign-in-page {
+  background-color: #ffffff;
+  border: 1px solid rgb(236, 239, 241, 0.45);
+}
+
+.sign-in-title-wrapper {
+  height: 30px;
+  width: 440px;
+  margin: 0 auto 0;
+  padding: 0 5px;
+  background-color: #1B435D;
+}
+
+.sign-in-title-wrapper p {
+  line-height: 30px;
+  color: #ffffff;
+}
+
+.sign-in-criteria-wrapper {
+  width: 80%;
+  margin: 20px auto 0;
+  text-align: center;
+}
+
+.sign-in-criteria-wrapper .form-field {
+  margin: 20px auto 0;
+  width: 200px;
+}
+
+.sign-in-page-wrapper .flat-button {
+  margin: 50px auto 50px;
+  width: 200px;
+  border-radius: 2px;
+  background-color: #78BBE6;
+  color: #ffffff;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+  box-shadow: none;
+}
+
+.sign-in-page-wrapper .flat-button:hover {
+  opacity: 0.8;
+}
+
+.sign-in-page-wrapper .flat-button:disabled {
+  opacity: 0.4;
+}

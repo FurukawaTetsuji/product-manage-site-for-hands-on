@@ -1,1 +1,1 @@
-<p>error-messaging works!</p>
+<p *ngIf="errorMessagingService.getMessageProperty()">{{errorMessagingService.getMessageProperty() | translate}}</p>
