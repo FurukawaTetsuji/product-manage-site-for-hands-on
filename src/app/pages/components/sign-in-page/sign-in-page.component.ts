@@ -102,11 +102,11 @@ export class SignInPageComponent implements OnInit, AfterViewChecked {
   }
 
   private createSignInRequestDto(): SignInRequestDto {
-    // Creates Request dto.
-    const signInRequestDto = new SignInRequestDto();
-    signInRequestDto.Username = this.signInUserAccount.value;
-    signInRequestDto.Password = this.signInUserPassword.value;
-    return signInRequestDto;
+    // Creates Request.
+    return {
+      Username: this.signInUserAccount.value,
+      Password: this.signInUserPassword.value
+    };
   }
 
   private setUpUserAccount(responseDto: SignInResponseDto) {

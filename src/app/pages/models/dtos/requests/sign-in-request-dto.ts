@@ -1,5 +1,4 @@
-export class SignInRequestDto {
-  public Username: string;
-
-  public Password: string;
+export interface SignInRequestDto {
+  Username: string;
+  Password: string;
 }
