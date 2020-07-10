@@ -81,7 +81,7 @@ describe('SignInPageComponent', () => {
       component.clickSignInButton();
 
       expect(accountServiceSpy.setUser.calls.count()).toEqual(1);
-      expect(router.navigate).toHaveBeenCalledWith(['/' + UrlConst.PATH_PRODUCT_LISTING]);
+      expect(router.navigate).toHaveBeenCalledWith([UrlConst.SLASH + UrlConst.PATH_PRODUCT_LISTING]);
     });
   });
 
