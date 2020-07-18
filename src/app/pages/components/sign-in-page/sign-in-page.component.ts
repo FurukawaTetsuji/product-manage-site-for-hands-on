@@ -41,7 +41,7 @@ export class SignInPageComponent implements OnInit, AfterViewChecked {
    */
   ngOnInit(): void {
     // Sets language from browser settings.
-    this.setupLangage();
+    this.setupLanguage();
   }
 
   /**
@@ -65,19 +65,19 @@ export class SignInPageComponent implements OnInit, AfterViewChecked {
   // --------------------------------------------------------------------------------
   // private methods
   // --------------------------------------------------------------------------------
-  private setupLangage() {
+  private setupLanguage() {
     // Setups language using browser settings.
-    this.translateService.setDefaultLang(this.getLangage(navigator.language));
-    this.translateService.use(this.getLangage(navigator.language));
+    this.translateService.setDefaultLang(this.getLanguage(navigator.language));
+    this.translateService.use(this.getLanguage(navigator.language));
   }
 
-  private getLangage(language: string): string {
-    console.log('SignInPageComponent #getLangage() language:' + language);
+  private getLanguage(language: string): string {
+    console.log('SignInPageComponent #getLanguage() language:' + language);
 
     const CHAR_HYPHEN = '-';
     if (language.indexOf(CHAR_HYPHEN) > 0) {
       const splittedLanguage: string[] = language.split(CHAR_HYPHEN);
-      console.log('SignInPageComponent #getLangage() splittedLanguage[0]:' + splittedLanguage[0]);
+      console.log('SignInPageComponent #getLanguage() splittedLanguage[0]:' + splittedLanguage[0]);
 
       return splittedLanguage[0];
     }

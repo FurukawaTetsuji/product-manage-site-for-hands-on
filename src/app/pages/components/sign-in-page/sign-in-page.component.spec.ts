@@ -85,8 +85,8 @@ describe('SignInPageComponent', () => {
     });
   });
 
-  describe('#getLangage', () => {
-    const privateMethodName = 'getLangage';
+  describe('#getLanguage', () => {
+    const privateMethodName = 'getLanguage';
 
     it('lang without hypen', () => {
       const language = 'ja';
