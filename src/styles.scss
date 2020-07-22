@@ -22,82 +22,6 @@ body {
 }
 
 /* --------------------------------------------------------------------------------
- * Header.
- * -------------------------------------------------------------------------------- */
-.header-wrapper {
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  margin: 0;
-  height: 50px;
-  width: 100%;
-  background-color: #1B435D;
-}
-
-.header-wrapper:hover {
-  opacity: 0.9;
-}
-
-.header-wrapper ul {
-  color: #ffffff;
-  font-size: 1.4rem;
-  list-style-type: none;
-}
-
-.header-wrapper ul li {
-  padding: 15px 30px 15px 10px;
-  display: inline-block;
-}
-
-.header-wrapper ul li:hover {
-  opacity: 0.9;
-  cursor: pointer;
-}
-
-/* .header-wrapper .toolbar {
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  margin: 0;
-  min-height: 50px;
-  max-height: 50px;
-  background-color: #1B435D;
-  color: #ffffff;
-  font-size: 1.4rem;
-}
-
-.header-wrapper .toolbar-row {
-  padding: 0 0;
-}
-
-.header-wrapper .menu {
-  height: 50px;
-}
-
-.header-wrapper .menu:hover {
-  opacity: 0.7;
-}
-
-.header-wrapper .menu.btnSystemName {
-  padding-left: 10px;
-}
-
-.header-wrapper .menu.btnSignOut {
-  text-align: right;
-  padding-right: 10px;
-  margin-right: 0;
-  right: 0;
-  position: absolute;
-  height: 50px;
-}
-
-.header-wrapper .btnSidenav {
-  display: none;
-} */
-
-/* --------------------------------------------------------------------------------
  * footer.
  * -------------------------------------------------------------------------------- */
 .footer-wrapper {
@@ -519,7 +443,7 @@ body {
 /* --------------------------------------------------------------------------------
  * Other Material settings.
  * -------------------------------------------------------------------------------- */
-/* .mat-dialog-container {
+.mat-dialog-container {
   background-color: #ECEFF1;
   box-shadow: none;
   padding: 0 !important;
@@ -527,7 +451,7 @@ body {
 
 .mat-checkbox.mat-accent.mat-checkbox-checked .mat-checkbox-background {
   background-color: #F99F48;
-} */
+}
 
 /* --------------------------------------------------------------------------------
  * Smart Phones and tablets settings.

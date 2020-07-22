@@ -3,7 +3,7 @@
 
   <!-- Side navigation -->
   <mat-sidenav #sidenav mode="side">
-    <app-sidenav *ngIf="!this.isSignInPage()"></app-sidenav>
+    <app-sidenav (sidenavClose)="sidenav.close()" *ngIf="!this.isSignInPage()"></app-sidenav>
   </mat-sidenav>
 
   <!-- Main contents -->
@@ -15,7 +15,7 @@
     <!-- Wrapper of body -->
     <div class="body-wrapper">
       <!-- Header -->
-      <app-header *ngIf="!this.isSignInPage()"></app-header>
+      <app-header (sidenavToggle)="sidenav.toggle()" *ngIf="!this.isSignInPage()"></app-header>
 
       <!-- Router -->
       <router-outlet></router-outlet>
