@@ -1,0 +1,33 @@
+.mat-dialog-title {
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+.mat-dialog-actions {
+    padding-left: 10px;
+    padding-top: 30px;
+}
+
+.mat-dialog-actions .flat-button {
+    width: 140px;
+    border-radius: 2px;
+    background-color: #78BBE6;
+    color: #ffffff;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    margin-left: 5px;
+}
+
+.mat-dialog-actions .flat-button:hover {
+    opacity: 0.8;
+}
+
+h1 {
+    font-size: 1.2rem;
+    padding-left: 15px;
+}
+
+p {
+    font-size: 1rem;
+    padding-top: 15px;
+    padding-left: 15px;
+}

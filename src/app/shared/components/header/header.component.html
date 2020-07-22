@@ -1,1 +1,36 @@
-<p>header works!</p>
+<header class="header-wrapper">
+    <mat-toolbar class="toolbar">
+        <mat-toolbar-row class="toolbar-row">
+            <button class="btnSidenav" mat-icon-button (click)="clickSidenav()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <button mat-button routerLink="{{initialDisplayScreenUrl}}" class="menu btnSystemName"
+                matTooltip="{{ 'menu.tooltip.home' | translate }}">
+                <div>EXAPMLE SITE</div>
+            </button>
+
+            <div class="toolBarMenu">
+                <ng-container *ngFor="let item of menuListResponseDto">
+                    <button mat-button [matMenuTriggerFor]="appMenu" id="{{'menu-'+ item.menuCode}}"
+                        class="menu mainMenu">
+                        <div>{{ 'menu.' + item.menuCode | translate }}</div>
+                    </button>
+                    <mat-menu #appMenu="matMenu">
+                        <ng-container *ngFor="let subMenuCode of item.subMenuCodeList">
+                            <button mat-menu-item id="{{'subMenu-' + subMenuCode}}" class="menu subMenu"
+                                matTooltip="{{ 'menu.tooltip.subMenu.' + subMenuCode | translate }}"
+                                routerLink="/{{subMenuCode}}">
+                                {{'subMenu.' + subMenuCode | translate }}
+                            </button>
+                        </ng-container>
+                    </mat-menu>
+                </ng-container>
+            </div>
+
+            <button mat-button id="sign-out-button" class="menu btnSignOut"
+                matTooltip="{{ 'menu.tooltip.signOut' | translate }}" (click)="clickSignOut()">
+                <mat-icon>exit_to_app</mat-icon>
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</header>

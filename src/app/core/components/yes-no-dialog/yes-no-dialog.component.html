@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>{{data.title | translate}}</h1>
+<p>{{data.message | translate}}</p>
+<div mat-dialog-actions>
+    <button mat-flat-button id="yesNoDialog_button_no" class="flat-button"
+        mat-dialog-close>{{data.captionNo | translate}}
+    </button>
+    <button mat-flat-button id="yesNoDialog_button_yes" class="flat-button"
+        [mat-dialog-close]="true">{{data.captionYes | translate}}
+    </button>
+</div>

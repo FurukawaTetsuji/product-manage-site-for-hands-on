@@ -1,1 +1,21 @@
-<p>sidenav works!</p>
+<mat-nav-list>
+    <mat-list-item routerLink="{{initialDisplayScreenUrl}}" (click)="clickHome()"
+        matTooltip="{{ 'menu.tooltip.home' | translate }}">
+        <mat-icon>home</mat-icon>{{ 'menu.home' | translate }}
+    </mat-list-item>
+
+    <ng-container *ngFor=" let item of menuListResponseDto">
+        <mat-list-item [matMenuTriggerFor]="appMenu">
+            <mat-icon>arrow_drop_down</mat-icon>
+            <a matline>{{ 'menu.' +item.menuCode | translate }}</a>
+        </mat-list-item>
+        <mat-menu #appMenu="matMenu">
+            <ng-container *ngFor="let subMenuCode of item.subMenuCodeList">
+                <button mat-menu-item (click)="clickSubmenu()"
+                    matTooltip="{{ 'menu.tooltip.subMenu.' + subMenuCode | translate }}"
+                    routerLink="/{{subMenuCode}}">{{ 'subMenu.' + subMenuCode | translate }}
+                </button>
+            </ng-container>
+        </mat-menu>
+    </ng-container>
+</mat-nav-list>
