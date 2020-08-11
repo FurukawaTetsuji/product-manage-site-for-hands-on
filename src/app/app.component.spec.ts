@@ -1,8 +1,11 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
+import { MaterialModule } from './material/material.module';
 import { UrlConst } from './pages/constants/url-const';
 
 describe('AppComponent', () => {
@@ -12,7 +15,8 @@ describe('AppComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [RouterTestingModule, MaterialModule, BrowserAnimationsModule],
       declarations: [AppComponent]
     }).compileComponents();
     router = TestBed.inject(Router);
