@@ -3,15 +3,15 @@ import { User } from 'src/app/pages/models/user';
 
 import { TestBed } from '@angular/core/testing';
 
-import { SessionStrageService } from './session-strage.service';
+import { SessionStorageService } from './session-storage.service';
 
-describe('SessionStrageService', () => {
-  let service: SessionStrageService;
+describe('SessionStorageService', () => {
+  let service: SessionStorageService;
   let expectedUser: User;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(SessionStrageService);
+    service = TestBed.inject(SessionStorageService);
     expectedUser = createUser();
   });
 
@@ -23,8 +23,8 @@ describe('SessionStrageService', () => {
 
   describe('#setItem, #getItem', () => {
     it('should set and get item', () => {
-      SessionStrageService.setItem(AppConst.STRAGE_KEY_USER, expectedUser);
-      const resultUser: User = SessionStrageService.getItem(AppConst.STRAGE_KEY_USER, new User());
+      SessionStorageService.setItem(AppConst.STORAGE_KEY_USER, expectedUser);
+      const resultUser: User = SessionStorageService.getItem(AppConst.STORAGE_KEY_USER, new User());
       expect(resultUser.userAccount).toEqual(expectedUser.userAccount);
       expect(resultUser.userName).toEqual(expectedUser.userName);
       expect(resultUser.userLocale).toEqual(expectedUser.userLocale);
@@ -37,9 +37,9 @@ describe('SessionStrageService', () => {
 
   describe('#removeItem', () => {
     it('should remove item', () => {
-      SessionStrageService.setItem(AppConst.STRAGE_KEY_USER, expectedUser);
-      SessionStrageService.removeItem(AppConst.STRAGE_KEY_USER);
-      expect(SessionStrageService.getItem(AppConst.STRAGE_KEY_USER, new User())).toBeNull();
+      SessionStorageService.setItem(AppConst.STORAGE_KEY_USER, expectedUser);
+      SessionStorageService.removeItem(AppConst.STORAGE_KEY_USER);
+      expect(SessionStorageService.getItem(AppConst.STORAGE_KEY_USER, new User())).toBeNull();
     });
   });
 });
