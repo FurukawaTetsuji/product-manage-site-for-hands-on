@@ -1,7 +1,7 @@
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { ErrorMessagingService } from 'src/app/core/services/error-messaging.service';
-import { SessionStrageService } from 'src/app/core/services/session-strage.service';
+import { SessionStorageService } from 'src/app/core/services/session-storage.service';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -86,24 +86,24 @@ export class AccountService {
 
   /**
    * Gets user
-   * @returns user informations from session strage
+   * @returns user informations from session storage
    */
   getUser(): User {
-    return SessionStrageService.getItem(AppConst.STRAGE_KEY_USER, new User());
+    return SessionStorageService.getItem(AppConst.STORAGE_KEY_USER, new User());
   }
 
   /**
    * Sets user
-   * @param user infomatios to save session strage
+   * @param user infomatios to save session storage
    */
   setUser(user: User): void {
-    SessionStrageService.setItem(AppConst.STRAGE_KEY_USER, user);
+    SessionStorageService.setItem(AppConst.STORAGE_KEY_USER, user);
   }
 
   /**
    * Removes user
    */
   removeUser(): void {
-    SessionStrageService.removeItem(AppConst.STRAGE_KEY_USER);
+    SessionStorageService.removeItem(AppConst.STORAGE_KEY_USER);
   }
 }
