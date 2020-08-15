@@ -17,7 +17,7 @@ body {
   /* ↑ Fallback of calc() for unsupported browsers */
   min-height: calc(100vh - 50px);
   position: relative;
-  padding-bottom: 35px;
+  padding-bottom: 30px;
   box-sizing: border-box;
 }
 
@@ -458,7 +458,7 @@ body {
  * -------------------------------------------------------------------------------- */
 /* @media(max-width:768px) {
   .body-wrapper {
-    padding-bottom: 35px;
+    padding-bottom: 30px;
   }
 
   .listing-page-wrapper h1 {
