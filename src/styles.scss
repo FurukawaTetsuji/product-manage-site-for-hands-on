@@ -141,7 +141,7 @@ body {
   background-color: #ECEFF1;
 }
 
-.search-functions-wrapper .raised-button {
+.search-functions-wrapper .flat-button {
   margin-right: 10px;
   width: 200px;
   border-radius: 2px;
@@ -152,11 +152,11 @@ body {
   box-shadow: none;
 }
 
-.search-functions-wrapper .raised-button:hover {
+.search-functions-wrapper .flat-button:hover {
   opacity: 0.8;
 }
 
-.search-functions-wrapper .raised-button.active {
+.search-functions-wrapper .flat-button.active {
   background-color: #F99F48;
   color: #ffffff;
 } */
@@ -312,7 +312,7 @@ body {
   opacity: 0.8;
 }
 
-/* .registering-criteria-wrapper .raised-button:hover {
+/* .registering-criteria-wrapper .flat-button:hover {
   opacity: 0.8;
 } */
 
@@ -415,8 +415,8 @@ body {
   color: #ffffff;
 }
 
-/* .registering-area-wrapper .raised-button,
-.registering-functions-wrapper .raised-button {
+/* .registering-area-wrapper .flat-button,
+.registering-functions-wrapper .flat-button {
   width: 200px;
   border-radius: 2px;
   background-color: #78BBE6;
@@ -427,16 +427,16 @@ body {
   margin-left: 18px;
 }
 
-.registering-functions-wrapper .raised-button:hover {
+.registering-functions-wrapper .flat-button:hover {
   opacity: 0.8;
 }
 
-.registering-functions-wrapper .raised-button.active {
+.registering-functions-wrapper .flat-button.active {
   background-color: #F99F48;
   color: #ffffff;
 }
 
-.registering-functions-wrapper .raised-button:disabled {
+.registering-functions-wrapper .flat-button:disabled {
   opacity: 0.4;
 } */
 
@@ -516,7 +516,7 @@ body {
     min-height: 30px;
   }
 
-  .search-functions-wrapper .raised-button {
+  .search-functions-wrapper .flat-button {
     margin-bottom: 2px;
     height: 50px;
     width: 100%;
@@ -572,8 +572,8 @@ body {
   .registering-area-wrapper.left,
   .registering-area-wrapper.right,
   .registering-area-wrapper img,
-  .registering-area-wrapper .raised-button,
-  .registering-functions-wrapper .raised-button,
+  .registering-area-wrapper .flat-button,
+  .registering-functions-wrapper .flat-button,
   .registering-criteria-wrapper p {
     width: 100%;
     margin-left: 0;
@@ -605,8 +605,8 @@ body {
     padding-bottom: 0;
   }
 
-  .registering-area-wrapper .raised-button,
-  .registering-functions .raised-button {
+  .registering-area-wrapper .flat-button,
+  .registering-functions .flat-button {
     display: block;
     height: 50px;
     margin-top: 0;
