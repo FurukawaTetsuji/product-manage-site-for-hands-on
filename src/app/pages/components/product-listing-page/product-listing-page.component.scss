@@ -1,0 +1,95 @@
+/* --------------------------------------------------------------------------------
+ * Product Listing page specific settings.
+ * -------------------------------------------------------------------------------- */
+.search-results-wrapper .search-results .width-product-name,
+.search-results-wrapper .search-results .width-product-code,
+.search-results-wrapper .search-results .width-product-genre,
+.search-results-wrapper .search-results .width-product-image,
+.search-results-wrapper .search-results .width-product-size,
+.search-results-wrapper .search-results .width-product-color {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.search-results-wrapper .search-results .width-product-unit-price,
+.search-results-wrapper .search-results .width-product-stock {
+  text-align: right;
+}
+
+.search-results-wrapper .search-results td.width-endOfSale {
+  text-align: center;
+}
+
+
+/* no */
+.search-results-wrapper .search-results .width-no {
+  padding-left: 5px;
+  max-width: 10px;
+  width: 5%;
+}
+
+/* product name */
+.search-results-wrapper .search-results .width-product-name {
+  max-width: 100px;
+  width: 15%;
+}
+
+/* product code */
+.search-results-wrapper .search-results .width-product-code {
+  max-width: 100px;
+  width: 15%;
+}
+
+/* product genre */
+.search-results-wrapper .search-results .width-product-genre {
+  max-width: 200px;
+  width: 10%;
+}
+
+/* product image */
+.search-results-wrapper .search-results .width-product-image {
+  max-width: 50px;
+  width: 10%;
+}
+
+/* product size */
+.search-results-wrapper .search-results .width-product-size {
+  max-width: 100px;
+  width: 15%;
+}
+
+/* product color */
+.search-results-wrapper .search-results .width-product-color {
+  max-width: 60px;
+  width: 10%;
+}
+
+/* product unit price */
+.search-results-wrapper .search-results .width-product-unit-price {
+  max-width: 10%;
+  width: 10%;
+}
+
+/* product stock */
+.search-results-wrapper .search-results .width-product-stock {
+  max-width: 10%;
+  width: 10%;
+}
+
+/* end of sale */
+.search-results-wrapper .search-results .width-endOfSale {
+  max-width: 10%;
+  width: 10%;
+}
+
+/* end of sale th only */
+.search-results-wrapper .search-results th.width-endOfSale {
+  padding-right: 40px;
+}
+
+.search-results-wrapper table img {
+  max-width: 50px;
+  max-height: 30px;
+}

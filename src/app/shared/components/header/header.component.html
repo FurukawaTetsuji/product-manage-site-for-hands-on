@@ -17,7 +17,7 @@
           <mat-menu #appMenu="matMenu">
             <ng-container *ngFor="let subMenuCode of item.subMenuCodeList">
               <button mat-menu-item id="{{'subMenu-' + subMenuCode}}" class="menu subMenu"
-                matTooltip="{{ 'menu.tooltip.subMenu.' + subMenuCode | translate }}" routerLink="/{{subMenuCode}}">
+                matTooltip="{{ 'menu.tooltip.subMenu.' + subMenuCode | translate }}" routerLink="/{{subMenuCode}}" (click)="clickSubmenu()">
                 {{'subMenu.' + subMenuCode | translate }}
               </button>
             </ng-container>

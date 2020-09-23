@@ -8,12 +8,20 @@ import { ErrorMessagingComponent } from './components/error-messaging/error-mess
 import { LoadingComponent } from './components/loading/loading.component';
 import { YesNoDialogComponent } from './components/yes-no-dialog/yes-no-dialog.component';
 import { XhrInterceptor } from './interceptors/xhr.interceptor';
+import { FormattedCurrencyPipe } from './pipes/formatted-currency.pipe';
+import { FormattedNumberPipe } from './pipes/formatted-number.pipe';
 
 @NgModule({
-  declarations: [LoadingComponent, ErrorMessagingComponent, YesNoDialogComponent],
+  declarations: [
+    LoadingComponent,
+    ErrorMessagingComponent,
+    YesNoDialogComponent,
+    FormattedNumberPipe,
+    FormattedCurrencyPipe
+  ],
   imports: [CommonModule, MaterialModule, NgxTranslateModule],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],
   entryComponents: [YesNoDialogComponent],
-  exports: [LoadingComponent, ErrorMessagingComponent, YesNoDialogComponent]
+  exports: [LoadingComponent, ErrorMessagingComponent, YesNoDialogComponent, FormattedNumberPipe, FormattedCurrencyPipe]
 })
 export class CoreModule {}
