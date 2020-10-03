@@ -1,5 +1,7 @@
 import { CurrencyPipe, DecimalPipe } from '@angular/common';
 
+import { RegexConst } from '../constants/regex-const';
+
 export class ParseHelper {
   /**
    * Parses number
@@ -27,16 +29,17 @@ export class ParseHelper {
   }
 
   private static parse(actualThousandsSeparator: string, value: any): string {
-    const HalfWidthBlank = ' ';
     const escapedActualThousandSeparator = ParseHelper.escapePeriod(actualThousandsSeparator);
 
     return (
       value
         .toString()
-        // First converts with half-width blank
-        .replace(new RegExp(HalfWidthBlank, 'g'), '')
-        // Converts with actual thousand separator regex
+        // First remove half-width blank
+        .replace(new RegExp(RegexConst.HalfWidthBlank, 'g'), '')
+        // Remove actual thousand separator
         .replace(new RegExp(escapedActualThousandSeparator, 'g'), '')
+        // Changes to a period if the decimal point is a comma
+        .replace(new RegExp(RegexConst.HalfWidthComma, 'g'), RegexConst.HalfWidthPeriod)
     );
   }
 

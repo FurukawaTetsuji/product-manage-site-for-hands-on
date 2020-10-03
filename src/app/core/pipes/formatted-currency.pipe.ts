@@ -15,14 +15,20 @@ export class FormattedCurrencyPipe implements PipeTransform {
     if (!value.toString().match(regexp)) {
       return value;
     }
-    // Converts after parsing once
-    const parsedValue = this.parse(value.toString(), locale, currency);
 
-    return new CurrencyPipe(locale).transform(parsedValue, currency, '', '', locale);
+    // Removes blanks and commas before converting
+    const blankCommaRemovedValue = value
+      .toString()
+      // First converts with half-width blank
+      .replace(new RegExp(RegexConst.HalfWidthBlank, 'g'), '')
+      .replace(new RegExp(RegexConst.HalfWidthComma, 'g'), '');
+
+    return new CurrencyPipe(locale).transform(blankCommaRemovedValue, currency, '', '', locale);
   }
 
   parse(value: any, locale: string, currency: string): string {
     return ParseHelper.parseCurrencyToNumber(value.toString(), locale, currency);
+    // If the Parse Helper class is difficult, use the comment line below instead.
     // return value.toString().replace(/,/g, '');
   }
 }
