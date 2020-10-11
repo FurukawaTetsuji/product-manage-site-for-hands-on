@@ -27,7 +27,7 @@ export class FormattedNumberPipe implements PipeTransform {
   }
 
   parse(value: any, locale: string): string {
-    return ParseHelper.parseNumber(value.toString(), locale);
+    return ParseHelper.parse(value.toString(), locale);
     // If the Parse Helper class is difficult, use the comment line below instead.
     // return value.toString().replace(/,/g, '');
   }

@@ -26,8 +26,8 @@ export class FormattedCurrencyPipe implements PipeTransform {
     return new CurrencyPipe(locale).transform(blankCommaRemovedValue, currency, '', '', locale);
   }
 
-  parse(value: any, locale: string, currency: string): string {
-    return ParseHelper.parseCurrencyToNumber(value.toString(), locale, currency);
+  parse(value: any, locale: string): string {
+    return ParseHelper.parse(value.toString(), locale);
     // If the Parse Helper class is difficult, use the comment line below instead.
     // return value.toString().replace(/,/g, '');
   }
