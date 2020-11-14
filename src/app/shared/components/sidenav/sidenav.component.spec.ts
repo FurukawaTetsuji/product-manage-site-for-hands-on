@@ -2,6 +2,7 @@ import { TranslateTestingModule } from 'ngx-translate-testing';
 import { of } from 'rxjs';
 import { MenuListResponseDto } from 'src/app/pages/models/dtos/responses/menu-list-response-dto';
 import { AccountService } from 'src/app/pages/services/account.service';
+import { SearchParamsService } from 'src/app/pages/services/search-params.service';
 
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -14,10 +15,12 @@ describe('SidenavComponent', () => {
   let component: SidenavComponent;
   let fixture: ComponentFixture<SidenavComponent>;
   let accountServiceSpy: { getMenu: jasmine.Spy };
+  let searchParamsServiceSpy: { removeProductListingSearchParamsDto: jasmine.Spy };
   let router: Router;
 
   beforeEach(async(() => {
     accountServiceSpy = jasmine.createSpyObj('AccountService', ['getMenu']);
+    searchParamsServiceSpy = jasmine.createSpyObj('SearchParamsService', ['removeProductListingSearchParamsDto']);
 
     TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
@@ -25,7 +28,10 @@ describe('SidenavComponent', () => {
         RouterTestingModule,
         TranslateTestingModule.withTranslations({ ja: require('src/assets/i18n/ja.json') })
       ],
-      providers: [{ provide: AccountService, useValue: accountServiceSpy }],
+      providers: [
+        { provide: AccountService, useValue: accountServiceSpy },
+        { provide: SearchParamsService, useValue: searchParamsServiceSpy }
+      ],
       declarations: [SidenavComponent]
     }).compileComponents();
     router = TestBed.inject(Router);
@@ -59,6 +65,7 @@ describe('SidenavComponent', () => {
     it('should remove search param', () => {
       spyOn(component.sidenavClose, 'emit').and.callThrough();
       component.clickSubmenu();
+      expect(searchParamsServiceSpy.removeProductListingSearchParamsDto.calls.count()).toBe(1);
       expect(component.sidenavClose.emit).toHaveBeenCalled();
     });
   });
