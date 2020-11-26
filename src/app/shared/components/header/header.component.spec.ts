@@ -19,7 +19,7 @@ describe('HeaderComponent', () => {
   let matDialogSpy: { open: jasmine.Spy };
   let router: Router;
 
-  beforeEach(async() => {
+  beforeEach(async () => {
     accountServiceSpy = jasmine.createSpyObj('AccountService', ['getMenu', 'signOut']);
     matDialogSpy = jasmine.createSpyObj('MatDialog', ['open']);
 
@@ -71,7 +71,7 @@ describe('HeaderComponent', () => {
   });
 
   describe('#clickSignOut', () => {
-    it('should sign out', async() => {
+    it('should sign out', () => {
       matDialogSpy.open.and.returnValue({ afterClosed: () => of(true) });
       accountServiceSpy.signOut.and.returnValue(of(null));
       spyOn(router, 'navigate');
@@ -79,7 +79,7 @@ describe('HeaderComponent', () => {
       expect(matDialogSpy.open.calls.count()).toBe(1);
       expect(accountServiceSpy.signOut.calls.count()).toBe(1);
       expect(router.navigate).toHaveBeenCalledWith([UrlConst.SLASH + UrlConst.PATH_SIGN_IN]);
-    }));
+    });
 
     it('should not sign out', () => {
       matDialogSpy.open.and.returnValue({ afterClosed: () => of(false) });
