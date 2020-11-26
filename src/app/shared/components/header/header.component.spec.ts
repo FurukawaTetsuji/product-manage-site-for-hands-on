@@ -5,7 +5,7 @@ import { MenuListResponseDto } from 'src/app/pages/models/dtos/responses/menu-li
 import { AccountService } from 'src/app/pages/services/account.service';
 
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -19,11 +19,11 @@ describe('HeaderComponent', () => {
   let matDialogSpy: { open: jasmine.Spy };
   let router: Router;
 
-  beforeEach(async(() => {
+  beforeEach(async() => {
     accountServiceSpy = jasmine.createSpyObj('AccountService', ['getMenu', 'signOut']);
     matDialogSpy = jasmine.createSpyObj('MatDialog', ['open']);
 
-    TestBed.configureTestingModule({
+    await TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
       imports: [
         RouterTestingModule,
@@ -36,7 +36,7 @@ describe('HeaderComponent', () => {
       declarations: [HeaderComponent]
     }).compileComponents();
     router = TestBed.inject(Router);
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HeaderComponent);
@@ -71,7 +71,7 @@ describe('HeaderComponent', () => {
   });
 
   describe('#clickSignOut', () => {
-    it('should sign out', async(() => {
+    it('should sign out', async() => {
       matDialogSpy.open.and.returnValue({ afterClosed: () => of(true) });
       accountServiceSpy.signOut.and.returnValue(of(null));
       spyOn(router, 'navigate');

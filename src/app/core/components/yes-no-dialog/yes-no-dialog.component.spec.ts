@@ -1,7 +1,7 @@
 import { TranslateTestingModule } from 'ngx-translate-testing';
 
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 
 import { YesNoDialogComponent } from './yes-no-dialog.component';
@@ -10,14 +10,14 @@ describe('YesNoDialogComponent', () => {
   let component: YesNoDialogComponent;
   let fixture: ComponentFixture<YesNoDialogComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
       imports: [MatDialogModule, TranslateTestingModule.withTranslations({ ja: require('src/assets/i18n/ja.json') })],
       providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }],
       declarations: [YesNoDialogComponent]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(YesNoDialogComponent);

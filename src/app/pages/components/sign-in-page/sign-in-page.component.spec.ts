@@ -5,7 +5,7 @@ import { TitleI18Service } from 'src/app/shared/services/title-i18.service';
 import { HtmlElementUtility } from 'src/app/testing/html-element-utility';
 
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,10 +27,10 @@ describe('SignInPageComponent', () => {
   let titleI18ServiceSpy: { setTitle: jasmine.Spy };
   let router: Router;
 
-  beforeEach(async(() => {
+  beforeEach(async () => {
     accountServiceSpy = jasmine.createSpyObj('AccountService', ['signIn', 'setUser']);
     titleI18ServiceSpy = jasmine.createSpyObj('TitleI18Service', ['setTitle']);
-    TestBed.configureTestingModule({
+    await TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
       imports: [
         RouterTestingModule,
@@ -47,7 +47,7 @@ describe('SignInPageComponent', () => {
       declarations: [SignInPageComponent]
     }).compileComponents();
     router = TestBed.inject(Router);
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SignInPageComponent);

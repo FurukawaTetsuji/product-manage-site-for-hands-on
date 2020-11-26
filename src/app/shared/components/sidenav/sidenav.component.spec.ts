@@ -4,7 +4,7 @@ import { MenuListResponseDto } from 'src/app/pages/models/dtos/responses/menu-li
 import { AccountService } from 'src/app/pages/services/account.service';
 
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -16,10 +16,10 @@ describe('SidenavComponent', () => {
   let accountServiceSpy: { getMenu: jasmine.Spy };
   let router: Router;
 
-  beforeEach(async(() => {
+  beforeEach(async () => {
     accountServiceSpy = jasmine.createSpyObj('AccountService', ['getMenu']);
 
-    TestBed.configureTestingModule({
+    await TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
       imports: [
         RouterTestingModule,
@@ -29,7 +29,7 @@ describe('SidenavComponent', () => {
       declarations: [SidenavComponent]
     }).compileComponents();
     router = TestBed.inject(Router);
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SidenavComponent);
