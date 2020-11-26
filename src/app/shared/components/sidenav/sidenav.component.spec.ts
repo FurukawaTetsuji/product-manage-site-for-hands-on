@@ -5,7 +5,7 @@ import { AccountService } from 'src/app/pages/services/account.service';
 import { SearchParamsService } from 'src/app/pages/services/search-params.service';
 
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -18,11 +18,11 @@ describe('SidenavComponent', () => {
   let searchParamsServiceSpy: { removeProductListingSearchParamsDto: jasmine.Spy };
   let router: Router;
 
-  beforeEach(async(() => {
+  beforeEach(async () => {
     accountServiceSpy = jasmine.createSpyObj('AccountService', ['getMenu']);
     searchParamsServiceSpy = jasmine.createSpyObj('SearchParamsService', ['removeProductListingSearchParamsDto']);
 
-    TestBed.configureTestingModule({
+    await TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
       imports: [
         RouterTestingModule,
@@ -35,7 +35,7 @@ describe('SidenavComponent', () => {
       declarations: [SidenavComponent]
     }).compileComponents();
     router = TestBed.inject(Router);
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SidenavComponent);

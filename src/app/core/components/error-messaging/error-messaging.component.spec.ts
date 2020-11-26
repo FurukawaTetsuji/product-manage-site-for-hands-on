@@ -1,7 +1,7 @@
 import { TranslateTestingModule } from 'ngx-translate-testing';
 
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { ErrorMessagingService } from '../../services/error-messaging.service';
@@ -12,18 +12,18 @@ describe('ErrorMessagingComponent', () => {
   let fixture: ComponentFixture<ErrorMessagingComponent>;
   let errorMessagingServiceSpy: { clearMessageProperty: jasmine.Spy; getMessageProperty: jasmine.Spy };
 
-  beforeEach(async(() => {
+  beforeEach(async () => {
     errorMessagingServiceSpy = jasmine.createSpyObj('ErrorMessagingService', [
       'clearMessageProperty',
       'getMessageProperty'
     ]);
-    TestBed.configureTestingModule({
+    await TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
       imports: [TranslateTestingModule.withTranslations({ ja: require('src/assets/i18n/ja.json') })],
       providers: [{ provide: ErrorMessagingService, useValue: errorMessagingServiceSpy }],
       declarations: [ErrorMessagingComponent]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ErrorMessagingComponent);
