@@ -187,7 +187,7 @@
       "halfWidthNumericComma": "Please enter a number."
     },
     "min": "Below the minimum number.",
-    "maxlength9": "Max 9 digits can be entered."
+    "maxlength8": "Max 8 digits can be entered."
   },
   "tooltip": {
     "searchCriteria": {
