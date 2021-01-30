@@ -7,6 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 
 import { CoreModule } from '../core/core.module';
+import { FormattedCurrencyPipe } from '../core/pipes/formatted-currency.pipe';
+import { FormattedNumberPipe } from '../core/pipes/formatted-number.pipe';
 import { MatPaginatorI18nService } from '../core/services/mat-paginator-i18n.service';
 import { MaterialModule } from '../material/material.module';
 import { NgxTranslateModule } from '../ngx-translate/ngx-translate.module';
@@ -41,7 +43,11 @@ import {
     ReactiveFormsModule,
     NgxUpperCaseDirectiveModule
   ],
-  providers: [{ provide: MatPaginatorIntl, useClass: MatPaginatorI18nService }],
+  providers: [
+    { provide: MatPaginatorIntl, useClass: MatPaginatorI18nService },
+    FormattedNumberPipe,
+    FormattedCurrencyPipe
+  ],
   exports: [
     SignInPageComponent,
     ProductListingPageComponent,

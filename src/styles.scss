@@ -226,13 +226,9 @@ body {
   background-color: #ffffff;
 }
 
-.registering-criteria-wrapper .button:hover {
+.registering-criteria-wrapper .flat-button:hover {
   opacity: 0.8;
-}
-
-/* .registering-criteria-wrapper .flat-button:hover {
-  opacity: 0.8;
-} */
+} 
 
 .registering-criteria,
 .registering-functions {
@@ -277,15 +273,7 @@ body {
   margin: 10px auto 0;
 }
 
-.registering-criteria-wrapper input[type=text] {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  border-width: 0;
-  font-size: 1.4rem;
-  display: block;
-}
-
-/* .registering-criteria-wrapper .form-field {
+.registering-criteria-wrapper .form-field {
   width: 20rem;
   font-size: 1.4rem;
 }
@@ -296,7 +284,7 @@ body {
 
 .registering-criteria-wrapper .validation-error {
   margin-top: 0.2rem;
-} */
+}
 
 .registering-criteria-wrapper p {
   margin-top: 30px;
@@ -309,35 +297,7 @@ body {
   text-align: right;
 }
 
-.registering-area-wrapper .button,
-.registering-functions-wrapper .button {
-  display: inline-block;
-  padding: 10px 0;
-  width: 200px;
-  border-radius: 2px;
-  background-color: #78BBE6;
-  color: #ffffff;
-  text-decoration: none;
-  text-align: center;
-  letter-spacing: 1px;
-  font-size: 1.2rem;
-}
-
-.registering-functions .button {
-  padding: 10px 0;
-  margin-left: 18px;
-}
-
-.registering-functions .button:hover {
-  opacity: 0.8;
-}
-
-.registering-functions .button.active {
-  background-color: #F99F48;
-  color: #ffffff;
-}
-
-/* .registering-area-wrapper .flat-button,
+.registering-area-wrapper .flat-button,
 .registering-functions-wrapper .flat-button {
   width: 200px;
   border-radius: 2px;
@@ -359,7 +319,7 @@ body {
 
 .registering-functions-wrapper .flat-button:disabled {
   opacity: 0.4;
-} */
+}
 
 /* --------------------------------------------------------------------------------
  * Other Material settings.
@@ -372,6 +332,10 @@ body {
 
 .mat-checkbox.mat-accent.mat-checkbox-checked .mat-checkbox-background {
   background-color: #F99F48;
+}
+
+.mat-calendar-body-cell-content.mat-calendar-body-selected {
+  background: #F99F48;
 }
 
 /* --------------------------------------------------------------------------------
