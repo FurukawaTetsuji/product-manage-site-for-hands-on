@@ -1,4 +1,7 @@
-import { YesNoDialogComponent } from 'src/app/core/components/yes-no-dialog/yes-no-dialog.component';
+import { Observable, Subject } from 'rxjs';
+import {
+    YesNoDialogComponent
+} from 'src/app/core/components/yes-no-dialog/yes-no-dialog.component';
 import { RegexConst as RegexConstCore } from 'src/app/core/constants/regex-const';
 import { YesNoDialogData } from 'src/app/core/models/yes-no-dialog-data';
 import { FormattedCurrencyPipe } from 'src/app/core/pipes/formatted-currency.pipe';
@@ -18,7 +21,9 @@ import { UrlConst } from '../../constants/url-const';
 import { ProductDto } from '../../models/dtos/product-dto';
 import { AccountService } from '../../services/account.service';
 import { ProductService } from '../../services/product.service';
-import { EndOfSaleEndOfSaleDateValidator } from '../../validators/end-of-sale-end-of-sale-date-validator';
+import {
+    EndOfSaleEndOfSaleDateValidator
+} from '../../validators/end-of-sale-end-of-sale-date-validator';
 
 @Component({
   selector: 'app-product-registering-page',
@@ -71,7 +76,6 @@ export class ProductRegisteringPageComponent implements OnInit, AfterViewChecked
 
   /** FileInput and FileReader */
   @ViewChild('fileInputElement', { static: false }) public fileInputElement: ElementRef;
-  fileReader: FileReader = new FileReader();
 
   /** Title and button text */
   messagePropertytitle = 'productRegisteringPage.title.new';
@@ -124,10 +128,9 @@ export class ProductRegisteringPageComponent implements OnInit, AfterViewChecked
     if (mimeType.match(RegexConst.MIME_TYPE_FILE_UPLOAD) == null) {
       return;
     }
-    this.fileReader.readAsDataURL(files[0]);
-    this.fileReader.onload = (e: any) => {
-      this.productImage.setValue(e.target.result);
-    };
+    this.readFile(files[0]).subscribe((result) => {
+      this.productImage.setValue(result);
+    });
   }
 
   /**
@@ -195,6 +198,18 @@ export class ProductRegisteringPageComponent implements OnInit, AfterViewChecked
     const lang = this.accountService.getUser().userLanguage;
     this.translateService.setDefaultLang(lang);
     this.translateService.use(lang);
+  }
+
+  private readFile(file: File): Observable<string> {
+    const subject = new Subject<string>();
+    const reader = new FileReader();
+    reader.onload = () => {
+      const content: string = reader.result as string;
+      subject.next(content);
+      subject.complete();
+    };
+    reader.readAsDataURL(file);
+    return subject.asObservable();
   }
 
   private getProduct(): void {
