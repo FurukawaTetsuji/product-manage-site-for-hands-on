@@ -74,7 +74,7 @@ export class ProductRegisteringPageComponent implements OnInit, AfterViewChecked
   /** Select item of genre */
   genres: string[];
 
-  /** FileInput and FileReader */
+  /** FileInput */
   @ViewChild('fileInputElement', { static: false }) public fileInputElement: ElementRef;
 
   /** Title and button text */
