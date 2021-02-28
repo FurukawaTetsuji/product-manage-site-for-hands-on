@@ -201,15 +201,16 @@ export class ProductRegisteringPageComponent implements OnInit, AfterViewChecked
   }
 
   private readFile(file: File): Observable<string> {
-    const subject = new Subject<string>();
-    const reader = new FileReader();
-    reader.onload = () => {
-      const content: string = reader.result as string;
-      subject.next(content);
-      subject.complete();
-    };
-    reader.readAsDataURL(file);
-    return subject.asObservable();
+    const observable = new Observable<string>((subscriber) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const content: string = reader.result as string;
+        subscriber.next(content);
+        subscriber.complete();
+      };
+      reader.readAsDataURL(file);
+    });
+    return observable;
   }
 
   private getProduct(): void {
