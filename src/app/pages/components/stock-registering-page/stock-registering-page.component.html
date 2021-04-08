@@ -1,1 +1,87 @@
-<p>stock-registering-page works!</p>
+<section class="registering-page-wrapper">
+  <div class="registering-title-wrapper">
+    <div class="registering-title">
+      <h1 id="title">{{ 'stockRegisteringPage.title' | translate }}</h1>
+    </div>
+  </div>
+  <div class="registering-criteria-wrapper">
+    <app-error-messaging></app-error-messaging>
+    <app-success-messaging></app-success-messaging>
+    <div class="registering-criteria">
+      <form [formGroup]="registeringForm">
+        <div class="registering-area-wrapper left">
+          <div class="registering-condition-wrapper">
+            <mat-form-field class="form-field">
+              <input id="product-code" matInput type="text" formControlName="productCode" upperCase
+                placeholder="{{ 'stockRegisteringPage.productCode' | translate }}"
+                matTooltip="{{ 'tooltip.registerValue.input.alphaNumeric' | translate }}" maxlength=20
+                (blur)="blurProductCode()">
+              <mat-error class="validation-error" *ngIf="productCode.hasError('productNotExistError')">
+                {{'stockRegisteringPage.validationError.productNotExistError'|translate}}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="registering-condition-wrapper">
+            <mat-form-field class="form-field width-wide">
+              <input id="product-name" matInput type="text" formControlName="productName"
+                placeholder="{{ 'stockRegisteringPage.productName' | translate }}" [readonly]=true>
+            </mat-form-field>
+          </div>
+          <div class="registering-condition-wrapper">
+            <mat-form-field class="form-field">
+              <input id="product-genre" matInput type="text" formControlName="productGenre"
+                placeholder="{{ 'dummyPurchasingPage.productGenre' | translate }}" [readonly]=true>
+            </mat-form-field>
+          </div>
+          <div class="registering-condition-wrapper">
+            <mat-form-field class="form-field width-wide">
+              <input id="product-size-standard" matInput type="text" formControlName="productSizeStandard"
+                placeholder="{{ 'stockRegisteringPage.productSizeStandard' | translate }}" [readonly]=true>
+            </mat-form-field>
+          </div>
+          <div class="registering-condition-wrapper">
+            <mat-form-field class="form-field">
+              <input id="product-stock-quantity" class="align-right" matInput type="text" appFormattedNumberInput
+                formControlName="productStockQuantity"
+                placeholder="{{ 'stockRegisteringPage.productStockQuantity' | translate }}" [attr.locale]="locale"
+                [readonly]=true>
+            </mat-form-field>
+          </div>
+          <div class="registering-condition-wrapper">
+            <mat-form-field class="form-field">
+              <input id="add-product-stock-quantity" class="align-right" matInput type="text" appFormattedNumberInput
+                formControlName="addProductStockQuantity"
+                placeholder="{{ 'stockRegisteringPage.addStockQuantity' | translate }}"
+                matTooltip="{{ 'tooltip.registerValue.input.numeric' | translate }}" [attr.locale]="locale"
+                maxlength=11>
+              <mat-error class="validation-error" *ngIf="addProductStockQuantity.hasError('required')">
+                {{'validationError.required'|translate}}
+              </mat-error>
+              <mat-error class="validation-error" *ngIf="addProductStockQuantity.hasError('min')">
+                {{'validationError.min'|translate}}
+              </mat-error>
+              <mat-error class="validation-error" *ngIf="addProductStockQuantity.hasError('max')">
+                {{'validationError.maxlength8'|translate}}
+              </mat-error>
+              <mat-error class="validation-error" *ngIf="addProductStockQuantity.hasError('pattern')">
+                {{'validationError.pattern.halfWidthNumericComma'|translate}}
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="registering-area-wrapper right">
+          <p>{{ 'stockRegisteringPage.productImage' | translate }}</p>
+          <img src="../../../../assets/images/no_image.png" class="image-preview" *ngIf="!productImage.value" />
+          <img id="product-image" [src]="productImage.value" class="image-preview" *ngIf="productImage.value" />
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="registering-functions-wrapper">
+    <div class="registering-functions">
+      <button mat-flat-button id="save-button" class="flat-button active" (click)="clickSaveButton()"
+        [disabled]="!registeringForm.valid" matTooltip="{{ 'stockRegisteringPage.tooltip.saveButton' | translate }}">{{
+        'stockRegisteringPage.saveButton' | translate }}</button>
+    </div>
+  </div>
+</section>
