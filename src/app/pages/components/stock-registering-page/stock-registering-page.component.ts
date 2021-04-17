@@ -88,7 +88,7 @@ export class StockRegisteringPageComponent implements OnInit, AfterViewChecked {
    * Blurs product code
    */
   blurProductCode(): void {
-    if (this.productCode.value === '') {
+    if (!this.productCode.value) {
       return;
     }
     this.clearStockRegisteringConditions();
@@ -129,11 +129,11 @@ export class StockRegisteringPageComponent implements OnInit, AfterViewChecked {
   }
 
   private clearStockRegisteringConditions(): void {
-    this.productName.reset();
-    this.productGenre.reset();
-    this.productSizeStandard.reset();
-    this.productStockQuantity.reset();
-    this.addProductStockQuantity.reset();
+    this.productName.setValue('');
+    this.productGenre.setValue('');
+    this.productSizeStandard.setValue('');
+    this.productStockQuantity.setValue('');
+    this.addProductStockQuantity.setValue('');
   }
 
   private getProductStock(): void {
@@ -155,7 +155,7 @@ export class StockRegisteringPageComponent implements OnInit, AfterViewChecked {
   }
 
   private extractGetProductStockResponseDto(productStockResponseDto: ProductStockResponseDto): void {
-    if (productStockResponseDto === null) {
+    if (!productStockResponseDto) {
       return;
     }
     this.productName.setValue(productStockResponseDto.productName);
@@ -177,12 +177,12 @@ export class StockRegisteringPageComponent implements OnInit, AfterViewChecked {
   }
 
   private extractUpdateProductStockResponseDto(productStockResponseDto: ProductStockResponseDto): void {
-    if (productStockResponseDto === null) {
+    if (!productStockResponseDto) {
       return;
     }
     this.productStockQuantity.setValue(
       this.formattedNumberPipe.transform(String(productStockResponseDto.productStockQuantity), this.locale)
     );
-    this.addProductStockQuantity.reset();
+    this.addProductStockQuantity.setValue('');
   }
 }
