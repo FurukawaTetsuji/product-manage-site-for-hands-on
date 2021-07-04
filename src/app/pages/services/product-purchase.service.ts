@@ -3,11 +3,14 @@ import { catchError, map } from 'rxjs/operators';
 import { ErrorMessagingService } from 'src/app/core/services/error-messaging.service';
 import { SuccessMessagingService } from 'src/app/core/services/success-messaging.service';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { ApiConst } from '../constants/api-const';
 import { ProductPurchaseRequestDto } from '../models/dtos/requests/product-purchase-request-dto';
+import {
+    ProductPurchaseHistorySearchListResponseDto
+} from '../models/dtos/responses/product-purchase-history-search-list-response-dto';
 import { ProductPurchaseResponseDto } from '../models/dtos/responses/product-purchase-response-dto';
 
 @Injectable({
@@ -21,6 +24,23 @@ export class ProductPurchaseService {
   ) {}
 
   /**
+   * Gets product purchase history list
+   * @param httpParams search params
+   * @returns product purchase history list
+   */
+  getProductPurchaseHistoryList(httpParams: HttpParams): Observable<ProductPurchaseHistorySearchListResponseDto> {
+    const webApiUrl = ApiConst.PATH_API_ROOT + ApiConst.PATH_PURCHASE_HISTORY_SEARCH;
+    this.clearMessageProperty();
+
+    return this.http.get<ProductPurchaseHistorySearchListResponseDto>(webApiUrl, { params: httpParams }).pipe(
+      catchError((error) => {
+        this.errorMessageService.setupPageErrorMessageFromResponse(error);
+        return of(null as ProductPurchaseHistorySearchListResponseDto);
+      })
+    );
+  }
+
+  /**
    * Gets product purchase
    * @param productCode product code
    * @returns product purchase response
@@ -29,14 +49,12 @@ export class ProductPurchaseService {
     const webApiUrl = ApiConst.PATH_API_ROOT + ApiConst.PATH_PURCHASE;
     this.clearMessageProperty();
 
-    return this.http
-      .get<ProductPurchaseResponseDto>(webApiUrl, { params: { productCode } })
-      .pipe(
-        catchError((error) => {
-          this.errorMessageService.setupPageErrorMessageFromResponse(error);
-          return of(null as ProductPurchaseResponseDto);
-        })
-      );
+    return this.http.get<ProductPurchaseResponseDto>(webApiUrl, { params: { productCode } }).pipe(
+      catchError((error) => {
+        this.errorMessageService.setupPageErrorMessageFromResponse(error);
+        return of(null as ProductPurchaseResponseDto);
+      })
+    );
   }
 
   /**

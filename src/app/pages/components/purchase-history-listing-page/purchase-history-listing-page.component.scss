@@ -1,0 +1,103 @@
+/* --------------------------------------------------------------------------------
+ * Purchase History Listing page specific settings.
+ * -------------------------------------------------------------------------------- */
+.search-condition-wrapper .form-field-dates {
+  display: inline-table;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 10px 0;
+}
+
+.search-condition-wrapper .date-from,
+.search-condition-wrapper .date-to {
+  display: table-cell;
+}
+
+.search-results-wrapper .search-results .width-product-name,
+.search-results-wrapper .search-results .width-product-code,
+.search-results-wrapper .search-results .width-product-purchase-name,
+.search-results-wrapper .search-results .width-product-image,
+.search-results-wrapper .search-results .width-product-purchase-date {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.search-results-wrapper .search-results .width-product-purchase-unit-price,
+.search-results-wrapper .search-results .width-product-purchase-quantity,
+.search-results-wrapper .search-results .width-product-purchase-amount {
+  text-align: right;
+}
+
+/* no */
+.search-results-wrapper .search-results .width-no {
+  padding-left: 5px;
+  max-width: 10px;
+  width: 5%;
+}
+
+/* product name */
+.search-results-wrapper .search-results .width-product-name {
+  max-width: 100px;
+  width: 15%;
+}
+
+/* product code */
+.search-results-wrapper .search-results .width-product-code {
+  max-width: 100px;
+  width: 15%;
+}
+
+/* product purchaseName */
+.search-results-wrapper .search-results .width-product-purchase-name {
+  max-width: 200px;
+  width: 10%;
+}
+
+/* product image */
+.search-results-wrapper .search-results .width-product-image {
+  max-width: 50px;
+  width: 10%;
+}
+
+/* product purchase date */
+.search-results-wrapper .search-results .width-product-purchase-date {
+  max-width: 100px;
+  width: 15%;
+}
+
+/* product purchase unit price */
+.search-results-wrapper .search-results .width-product-purchase-unit-price {
+  max-width: 10%;
+  width: 10%;
+}
+
+.search-results-wrapper .search-results th.width-product-purchase-unit-price {
+  padding-right: 10px;
+}
+
+/* product purchase quantity */
+.search-results-wrapper .search-results .width-product-purchase-quantity {
+  max-width: 10%;
+  width: 10%;
+}
+
+.search-results-wrapper .search-results th.width-product-purchase-quantity {
+  padding-right: 15px;
+}
+
+/* product purchase amount */
+.search-results-wrapper .search-results .width-product-purchase-amount {
+  max-width: 10%;
+  width: 10%;
+}
+
+.search-results-wrapper .search-results th.width-product-purchase-amount {
+  padding-right: 40px;
+}
+
+.search-results-wrapper table img {
+  max-width: 50px;
+  max-height: 30px;
+}
