@@ -1,3 +1,4 @@
+import { Buffer } from 'buffer';
 import { TranslateTestingModule } from 'ngx-translate-testing';
 import { NgxUpperCaseDirectiveModule } from 'ngx-upper-case-directive';
 import { of } from 'rxjs';
@@ -302,8 +303,9 @@ describe('ProductRegisteringPageComponent_new', () => {
       fixture.detectChanges();
 
       fixture.whenStable().then(() => {
-        const htmlElementEndOfSaleDate: HTMLInputElement = fixture.debugElement.query(By.css(IDS.END_OF_SALE_DATE))
-          .nativeElement;
+        const htmlElementEndOfSaleDate: HTMLInputElement = fixture.debugElement.query(
+          By.css(IDS.END_OF_SALE_DATE)
+        ).nativeElement;
         expect(htmlElementEndOfSaleDate.placeholder).toContain('販売終了日');
       });
       expect(component.endOfSale.value).toBeTruthy();
