@@ -459,7 +459,7 @@ body {
 /* --------------------------------------------------------------------------------
  * Smart Phones and tablets settings.
  * -------------------------------------------------------------------------------- */
-/* @media(max-width:768px) {
+/* @media screen and (max-width:768px) {
   .listing-page-wrapper h1 {
     text-align: center;
   }
@@ -471,7 +471,6 @@ body {
 
   .search-criteria {
     width: 100%;
-    height: 170px;
     padding-left: 0;
     padding-right: 0;
     text-align: center;
@@ -481,10 +480,7 @@ body {
     width: 95%;
   }
 
-  .search-criteria .form-field-dates {
-    width: 100%;
-  }
-
+  .search-criteria .form-field-dates,
   .search-criteria .date-from .form-field,
   .search-criteria .date-to .form-field {
     width: 100%;
@@ -500,7 +496,6 @@ body {
 
   .search-functions-wrapper {
     height: auto;
-    margin-bottom: 0 auto 5px;
     text-align: center;
   }
 
@@ -512,36 +507,36 @@ body {
     justify-content: center;
     margin: 0;
     padding: 0;
-    min-height: 30px;
+  }
+
+  .search-functions-buttons {
+    text-align: center;
+    background-color: #ffffff;
   }
 
   .search-functions-wrapper .flat-button {
-    margin-bottom: 2px;
-    height: 50px;
-    width: 100%;
+    height: 40px;
+    width: 95%;
+    margin: 2px 0;
   }
 
   .search-results-wrapper .search-results thead {
     display: none;
   }
 
-  .search-results-wrapper tbody {
-    overflow: hidden;
+  .search-results-wrapper .search-results tbody {
     height: auto;
   }
 
   .search-results-wrapper .search-results tr {
-    border-bottom: 2px solid #F2F2F2;
     display: block;
-    height: 210px;
+    margin-top: 5px;
+    border-bottom: 2px solid #F2F2F2;
   }
 
   .search-results-wrapper .search-results td {
-    padding: 0 10px;
-    margin: 0;
     display: block;
     height: 2rem;
-    text-align: right;
     border-bottom: 0;
   }
 
@@ -550,13 +545,14 @@ body {
     float: left;
   }
 
-  .search-results-wrapper .search-results td:first-child {
-    margin-top: 5px !important;
-  }
-
   .registering-page-wrapper {
     padding-bottom: 55px;
     text-align: center;
+  }
+
+  .registering-criteria-wrapper {
+    height: auto;
+    margin-bottom: 30px;
   }
 
   .registering-criteria-wrapper .registering-criteria,
@@ -571,21 +567,11 @@ body {
   .registering-area-wrapper.left,
   .registering-area-wrapper.right,
   .registering-area-wrapper img,
-  .registering-area-wrapper .flat-button,
-  .registering-functions-wrapper .flat-button,
   .registering-criteria-wrapper p {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
     text-align: center;
-  }
-
-  .registering-criteria-wrapper {
-    height: auto;
-  }
-
-  .registering-criteria-wrapper .registering-criteria {
-    padding-bottom: 0;
   }
 
   .registering-criteria-wrapper .registering-condition-wrapper {
@@ -599,16 +585,18 @@ body {
     font-size: 1.2rem;
   }
 
-  .registering-functions {
-    padding-top: 0;
-    padding-bottom: 0;
+  .registering-criteria-wrapper p {
+    margin-top: 10px;
+  }
+
+  .registering-functions-wrapper .registering-functions {
+    padding: 0;
   }
 
   .registering-area-wrapper .flat-button,
   .registering-functions .flat-button {
-    display: block;
-    height: 50px;
-    margin-top: 0;
-    margin-bottom: 2px;
+    height: 40px;
+    width: 95%;
+    margin: 2px 0;
   }
 } */
