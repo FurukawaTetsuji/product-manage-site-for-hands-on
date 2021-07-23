@@ -93,3 +93,37 @@
   max-width: 50px;
   max-height: 30px;
 }
+
+/* --------------------------------------------------------------------------------
+ * Smart Phones and tablets settings.
+ * -------------------------------------------------------------------------------- */
+@media screen and (max-width:768px) {
+  .search-criteria {
+    height: 170px;
+  }
+
+  .search-results-wrapper .search-results tr {
+    height: 210px;
+  }
+
+  .search-results-wrapper .search-results td.width-no,
+  .search-results-wrapper .search-results td.width-product-name,
+  .search-results-wrapper .search-results td.width-product-code,
+  .search-results-wrapper .search-results td.width-product-genre,
+  .search-results-wrapper .search-results td.width-product-image,
+  .search-results-wrapper .search-results td.width-product-size,
+  .search-results-wrapper .search-results td.width-product-color,
+  .search-results-wrapper .search-results td.width-product-unit-price,
+  .search-results-wrapper .search-results td.width-product-stock,
+  .search-results-wrapper .search-results td.width-endOfSale {
+    margin: 0 0 0 10px;
+    padding: 0;
+    text-align: right;
+    max-width: 95%;
+    width: 95%;
+  }
+
+  .search-results-wrapper .search-results td.width-product-image {
+    height: 30px;
+  }
+}

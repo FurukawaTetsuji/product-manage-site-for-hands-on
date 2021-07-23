@@ -42,3 +42,16 @@
 .header-wrapper .btnSidenav {
     display: none;
 }
+
+/* --------------------------------------------------------------------------------
+ * Smart Phones and tablets settings.
+ * -------------------------------------------------------------------------------- */
+@media screen and (max-width:768px) {
+    .header-wrapper .menu.mainMenu {
+        display: none;
+    }
+
+    .header-wrapper .btnSidenav {
+        display: block;
+    }
+}

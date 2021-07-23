@@ -31,3 +31,13 @@ p {
     padding-top: 15px;
     padding-left: 15px;
 }
+
+/* --------------------------------------------------------------------------------
+ * Smart Phones and tablets settings.
+ * -------------------------------------------------------------------------------- */
+@media screen and (max-width:768px) {
+    .mat-dialog-actions .flat-button {
+        width: 135px;
+        font-size: 1.0rem;
+    }
+}

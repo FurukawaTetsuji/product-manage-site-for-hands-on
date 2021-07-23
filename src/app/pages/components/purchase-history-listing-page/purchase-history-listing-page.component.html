@@ -62,56 +62,66 @@
         <th class="width-no" mat-header-cell *matHeaderCellDef>
           {{ "PurchaseHistoryListingPage.no" | translate }}
         </th>
-        <td class="width-no" mat-cell *matCellDef="let element"> {{element.no}} </td>
+        <td class="width-no" mat-cell *matCellDef="let element"
+          [attr.data-label]="translateService.instant( 'PurchaseHistoryListingPage.no')"> {{element.no}} </td>
       </ng-container>
       <ng-container matColumnDef="productName">
         <th class="width-product-name" mat-header-cell *matHeaderCellDef>
           {{ "PurchaseHistoryListingPage.productName" | translate }}
         </th>
-        <td class="width-product-name" mat-cell *matCellDef="let element">
+        <td class="width-product-name" mat-cell *matCellDef="let element"
+          [attr.data-label]="translateService.instant( 'PurchaseHistoryListingPage.productName')">
           {{element.productName}} </td>
       </ng-container>
       <ng-container matColumnDef="productCode">
         <th class="width-product-code" mat-header-cell *matHeaderCellDef>
           {{ "PurchaseHistoryListingPage.productCode" | translate }}</th>
-        <td class="width-product-code" mat-cell *matCellDef="let element">
+        <td class="width-product-code" mat-cell *matCellDef="let element"
+          [attr.data-label]="translateService.instant( 'PurchaseHistoryListingPage.productCode')">
           {{element.productCode}} </td>
       </ng-container>
       <ng-container matColumnDef="productPurchaseName">
         <th class="width-product-purchase-name" mat-header-cell *matHeaderCellDef>
           {{ "PurchaseHistoryListingPage.productPurchaseName" | translate }}</th>
-        <td class="width-product-purchase-name" mat-cell *matCellDef="let element">
+        <td class="width-product-purchase-name" mat-cell *matCellDef="let element"
+          [attr.data-label]="translateService.instant( 'PurchaseHistoryListingPage.productPurchaseName')">
           {{element.productPurchaseName}}
         </td>
       </ng-container>
       <ng-container matColumnDef="productImage">
         <th class="width-product-image" mat-header-cell *matHeaderCellDef>
           {{ "PurchaseHistoryListingPage.productImage" | translate }}</th>
-        <td class="width-product-image" mat-cell *matCellDef="let element"><img src={{element.productImageUrl}} /></td>
+        <td class="width-product-image" mat-cell *matCellDef="let element"
+          [attr.data-label]="translateService.instant( 'PurchaseHistoryListingPage.productImage')"><img
+            src={{element.productImageUrl}} /></td>
       </ng-container>
       <ng-container matColumnDef="productPurchaseDate">
         <th class="width-product-purchase-date" mat-header-cell *matHeaderCellDef>
           {{ "PurchaseHistoryListingPage.productPurchaseDate" | translate }}</th>
-        <td class="width-product-purchase-date" mat-cell *matCellDef="let element">
+        <td class="width-product-purchase-date" mat-cell *matCellDef="let element"
+          [attr.data-label]="translateService.instant( 'PurchaseHistoryListingPage.productPurchaseDate')">
           {{element.productPurchaseDate | date:'short':timezoneOffset:locale}}
         </td>
       </ng-container>
       <ng-container matColumnDef="productPurchaseUnitPrice">
         <th class="width-product-purchase-unit-price" mat-header-cell *matHeaderCellDef>
           {{ "PurchaseHistoryListingPage.productPurchaseUnitPrice" | translate }}</th>
-        <td class="width-product-purchase-unit-price" mat-cell *matCellDef="let element">
+        <td class="width-product-purchase-unit-price" mat-cell *matCellDef="let element"
+          [attr.data-label]="translateService.instant( 'PurchaseHistoryListingPage.productPurchaseUnitPrice')">
           {{element.productPurchaseUnitPrice | formattedCurrency:locale:currency }}</td>
       </ng-container>
       <ng-container matColumnDef="productPurchaseQuantity">
         <th class="width-product-purchase-quantity" mat-header-cell *matHeaderCellDef>
           {{ "PurchaseHistoryListingPage.productPurchaseQuantity" | translate }}</th>
-        <td class="width-product-purchase-quantity" mat-cell *matCellDef="let element">
+        <td class="width-product-purchase-quantity" mat-cell *matCellDef="let element"
+          [attr.data-label]="translateService.instant( 'PurchaseHistoryListingPage.productPurchaseQuantity')">
           {{element.productPurchaseQuantity | formattedNumber:locale }} </td>
       </ng-container>
       <ng-container matColumnDef="productPurchaseAmount">
         <th class="width-product-purchase-amount" mat-header-cell *matHeaderCellDef>
           {{ "PurchaseHistoryListingPage.productPurchaseAmount" | translate }}</th>
-        <td class="width-product-purchase-amount" mat-cell *matCellDef="let element">
+        <td class="width-product-purchase-amount" mat-cell *matCellDef="let element"
+          [attr.data-label]="translateService.instant( 'PurchaseHistoryListingPage.productPurchaseAmount')">
           {{element.productPurchaseAmount | formattedCurrency:locale:currency }} </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayColumns; sticky: true"></tr>

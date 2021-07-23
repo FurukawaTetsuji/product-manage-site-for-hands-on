@@ -54,3 +54,37 @@
 .sign-in-page-wrapper .flat-button:disabled {
   opacity: 0.4;
 }
+
+/* --------------------------------------------------------------------------------
+ * Smart Phones and tablets settings.
+ * -------------------------------------------------------------------------------- */
+@media screen and (max-width:450px) {
+  .sign-in-page {
+    border: 0;
+  }
+
+  .sign-in-page-wrapper,
+  .sign-in-title-wrapper,
+  .sign-in-criteria-wrapper {
+    width: 100%;
+    text-align: center;
+  }
+
+  .sign-in-title-wrapper {
+    height: 50px;
+    padding: 0;
+  }
+
+  .sign-in-title-wrapper p {
+    line-height: 50px;
+  }
+
+  .sign-in-criteria-wrapper .form-field {
+    width: 95%;
+  }
+
+  .sign-in-page-wrapper .flat-button {
+    width: 95%;
+    height: 40px;
+  }
+}
