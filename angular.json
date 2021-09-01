@@ -22,7 +22,10 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "styles": [
               "./node_modules/reset-css/reset.css",
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
@@ -92,7 +95,10 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "styles": [
               "./node_modules/reset-css/reset.css",
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
@@ -106,20 +112,45 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json", "e2e/tsconfig.json"],
-            "exclude": ["**/node_modules/**"]
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "cypress/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
+          "builder": "@cypress/schematic:cypress",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "product-manage-site-for-hands-on:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "product-manage-site-for-hands-on:serve:production"
+            }
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
             "devServerTarget": "product-manage-site-for-hands-on:serve"
           },
           "configurations": {
             "production": {
               "devServerTarget": "product-manage-site-for-hands-on:serve:production"
             }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
           }
         }
       }
