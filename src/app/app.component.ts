@@ -18,8 +18,6 @@ export class AppComponent {
    * @returns true if sign in page
    */
   public isSignInPage(): boolean {
-    console.log('AppComponent #isSignInPage() this.routingService.router.url:' + this.routingService.router.url);
-
     if (UrlConst.SLASH === this.routingService.router.url) {
       return true;
     }
