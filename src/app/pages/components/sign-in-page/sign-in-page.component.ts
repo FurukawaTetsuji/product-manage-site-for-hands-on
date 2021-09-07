@@ -72,13 +72,9 @@ export class SignInPageComponent implements OnInit, AfterViewChecked {
   }
 
   private getLanguage(language: string): string {
-    console.log('SignInPageComponent #getLanguage() language:' + language);
-
     const CHAR_HYPHEN = '-';
     if (language.indexOf(CHAR_HYPHEN) > 0) {
       const splittedLanguage: string[] = language.split(CHAR_HYPHEN);
-      console.log('SignInPageComponent #getLanguage() splittedLanguage[0]:' + splittedLanguage[0]);
-
       return splittedLanguage[0];
     }
     return language;
@@ -119,13 +115,5 @@ export class SignInPageComponent implements OnInit, AfterViewChecked {
     user.userTimezoneOffset = responseDto.userTimezoneOffset;
     user.userCurrency = responseDto.userCurrency;
     this.accountService.setUser(user);
-
-    console.log('SignInPageComponent #setUpUserAccount() user.userAccount:' + user.userAccount);
-    console.log('SignInPageComponent #setUpUserAccount() user.userName:' + user.userName);
-    console.log('SignInPageComponent #setUpUserAccount() user.userLocale:' + user.userLocale);
-    console.log('SignInPageComponent #setUpUserAccount() user.userLanguage:' + user.userLanguage);
-    console.log('SignInPageComponent #setUpUserAccount() user.userTimezone:' + user.userTimezone);
-    console.log('SignInPageComponent #setUpUserAccount() user.userTimezoneOffset:' + user.userTimezoneOffset);
-    console.log('SignInPageComponent #setUpUserAccount() user.userCurrency:' + user.userCurrency);
   }
 }
