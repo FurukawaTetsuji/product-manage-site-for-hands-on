@@ -110,7 +110,7 @@
     "productPurchaseDateTo": "購入日To",
     "productCode": "商品コード",
     "productImage": "イメージ",
-    "productPurchaseDate": "注文日時",
+    "productPurchaseDate": "購入日時",
     "productPurchaseUnitPrice": "購入単価",
     "productPurchaseQuantity": "購入数量",
     "productPurchaseAmount": "購入金額",
@@ -187,7 +187,7 @@
       "halfWidthNumericComma": "数値を入力してください。"
     },
     "min": "最低数を下回っています。",
-    "maxlength9": "最大9桁までが入力可能です。"
+    "maxlength8": "最大8桁までが入力可能です。"
   },
   "tooltip": {
     "searchCriteria": {
