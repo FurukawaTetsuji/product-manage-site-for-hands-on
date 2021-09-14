@@ -106,8 +106,8 @@
     "no": "No.",
     "productPurchaseName": "Product Purchase Name",
     "productName": "Product Name",
-    "productPurchaseDateFrom": "Purchase Date From",
-    "productPurchaseDateTo": "Purchase Date To",
+    "productPurchaseDateFrom": "Date From",
+    "productPurchaseDateTo": "Date To",
     "productCode": "Product Code",
     "productImage": "Product Image",
     "productPurchaseDate": "Purchase Date and time",
@@ -187,7 +187,7 @@
       "halfWidthNumericComma": "Please enter a number."
     },
     "min": "Below the minimum number.",
-    "maxlength9": "Max 9 digits can be entered."
+    "maxlength8": "Max 8 digits can be entered."
   },
   "tooltip": {
     "searchCriteria": {
