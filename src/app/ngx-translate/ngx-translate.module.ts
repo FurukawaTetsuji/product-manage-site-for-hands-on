@@ -7,13 +7,12 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-registerLocaleData(localeJa);
-registerLocaleData(localeFr);
 registerLocaleData(localeDe);
+registerLocaleData(localeFr);
+registerLocaleData(localeJa);
 
-// HttpLoaderFactory
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http);
 }
 
 @NgModule({
