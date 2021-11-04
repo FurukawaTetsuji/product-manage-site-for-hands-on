@@ -151,48 +151,41 @@ describe('ProductRegisteringPageComponent_new', () => {
 
     it('should return When there is no file', () => {
       spyOn<any>(component, privateMethodReadFile).and.callThrough();
-      component.clickProductImageButton(Array());
+      const imageFileList: FileList = createFileList(Array());
+      component.clickProductImageButton(imageFileList);
       expect(component[privateMethodReadFile]).toHaveBeenCalledTimes(0);
     });
     it('should return when not images', () => {
       // Setups non image file.
-      const decodedImage = Buffer.from(VALUE_NOT_PRODUCT_IMAGE_BASE64, 'base64');
-      const arrayOfBlob = new Array<Blob>();
-      arrayOfBlob.push(new Blob([decodedImage]));
-      const imageFiles = Array(new File(arrayOfBlob, 'test01.zip', { type: 'application/zip' }));
+      const imageFile: File = createFile(VALUE_NOT_PRODUCT_IMAGE_BASE64, 'test01.zip', 'application/zip');
+      const imageFileList: FileList = createFileList(Array(imageFile));
 
       spyOn<any>(component, privateMethodReadFile).and.callThrough();
-      component.clickProductImageButton(imageFiles);
+      component.clickProductImageButton(imageFileList);
 
-      expect(imageFiles.length).toEqual(1);
+      expect(imageFileList.length).toEqual(1);
       expect(component[privateMethodReadFile]).toHaveBeenCalledTimes(0);
     });
     it('should load image', () => {
       // Setups image file.
-      const decodedImage = Buffer.from(VALUE_PRODUCT_IMAGE_BASE64, 'base64');
-      const arrayOfBlob = new Array<Blob>();
-      arrayOfBlob.push(new Blob([decodedImage]));
-      const imageFiles = Array(new File(arrayOfBlob, 'test01.img', { type: 'image/png' }));
+      const imageFile: File = createFile(VALUE_PRODUCT_IMAGE_BASE64, 'test01.img', 'image/png');
+      const imageFileList: FileList = createFileList(Array(imageFile));
 
       spyOn<any>(component, privateMethodReadFile).and.returnValue(of(VALUE_PRODUCT_IMAGE_DATA_URL));
-      component.clickProductImageButton(imageFiles);
+      component.clickProductImageButton(imageFileList);
 
-      expect(imageFiles.length).toEqual(1);
-      expect(component[privateMethodReadFile]).toHaveBeenCalledWith(imageFiles[0]);
+      expect(imageFileList.length).toEqual(1);
+      expect(component[privateMethodReadFile]).toHaveBeenCalledWith(imageFileList[0]);
       expect(component.productImage.value).toEqual(VALUE_PRODUCT_IMAGE_DATA_URL);
     });
   });
   describe('#readFile', () => {
     it('should load image', () => {
       // Setups image file.
-      const decodedImage = Buffer.from(VALUE_PRODUCT_IMAGE_BASE64, 'base64');
-      const arrayOfBlob = new Array<Blob>();
-      arrayOfBlob.push(new Blob([decodedImage]));
-      const imageFiles = Array(new File(arrayOfBlob, 'test01.img', { type: 'image/png' }));
+      const imageFile: File = createFile(VALUE_PRODUCT_IMAGE_BASE64, 'test01.img', 'image/png');
 
-      expect(imageFiles.length).toEqual(1);
       const privateMethodName = 'readFile';
-      component[privateMethodName](imageFiles[0]).subscribe((result) => {
+      component[privateMethodName](imageFile).subscribe((result) => {
         expect(result).toEqual(VALUE_PRODUCT_IMAGE_DATA_URL);
       });
     });
@@ -525,4 +518,19 @@ function createExpectedProductDto() {
     updateDate: new Date()
   };
   return expectedProductDto;
+}
+
+function createFile(base64source: string, fileName: string, mimeType: string): File {
+  const buffer: Buffer = Buffer.from(base64source, 'base64');
+  const blobs: Blob[] = new Array<Blob>();
+  blobs.push(new Blob([buffer]));
+  return new File(blobs, fileName, { type: mimeType });
+}
+
+function createFileList(files: File[]): FileList {
+  let dataTransfer: DataTransfer = new DataTransfer();
+  files.forEach((file) => {
+    dataTransfer.items.add(file);
+  });
+  return dataTransfer.files;
 }
