@@ -15,18 +15,23 @@ const stockRegisteringPage: StockRegisteringPage = new StockRegisteringPage();
 const dummyPurchasingPage: DummyPurchasingPage = new DummyPurchasingPage();
 const purchaseHistoryListingPage: PurchaseHistoryListingPage = new PurchaseHistoryListingPage();
 
-const now = new Date().toISOString(); // 2022-01-01T12:00:00.000Z
-const testDate = now
-  .replace(/-/g, '/') // Replaces all hyphens to slashes.
-  .substring(0, 10); // Cuts to length only for date → 2022/01/01
+const now = new Date().toLocaleDateString('ja-JP', {
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  timeZone: 'Asia/Tokyo'
+}); // → 2022/01/01 00:00:00
 
+const testDate = now.substring(0, 10); // Cuts to length only for date → 2022/01/01
 const productCode =
   'TEST' +
   now
-    .replace(/-/g, '') // Removes all hyphens.
+    .replace(/\//g, '') // Removes all slashes.
     .replace(/:/g, '') // Removes all colons.
-    .replace('T', '') // Removes T.
-    .substring(0, 14); //→ TEST20220101120000
+    .replace(' ', ''); // Removes space. → TEST20220101120000
 
 const productName = 'Test Product Name';
 const productPurchaseName = '藤田 茂平';
