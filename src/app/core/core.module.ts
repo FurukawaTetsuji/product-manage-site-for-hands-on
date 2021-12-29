@@ -19,30 +19,29 @@ import { FormattedCurrencyPipe } from './pipes/formatted-currency.pipe';
 import { FormattedNumberPipe } from './pipes/formatted-number.pipe';
 
 @NgModule({
-  declarations: [
-    LoadingComponent,
-    ErrorMessagingComponent,
-    YesNoDialogComponent,
-    FormattedNumberPipe,
-    FormattedCurrencyPipe,
-    MatDatepickerComponent,
-    FormattedNumberInputDirective,
-    FormattedCurrencyInputDirective,
-    SuccessMessagingComponent
-  ],
-  imports: [CommonModule, MaterialModule, NgxTranslateModule, ReactiveFormsModule],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],
-  entryComponents: [YesNoDialogComponent],
-  exports: [
-    LoadingComponent,
-    ErrorMessagingComponent,
-    YesNoDialogComponent,
-    FormattedNumberPipe,
-    FormattedCurrencyPipe,
-    MatDatepickerComponent,
-    FormattedNumberInputDirective,
-    FormattedCurrencyInputDirective,
-    SuccessMessagingComponent
-  ]
+    declarations: [
+        LoadingComponent,
+        ErrorMessagingComponent,
+        YesNoDialogComponent,
+        FormattedNumberPipe,
+        FormattedCurrencyPipe,
+        MatDatepickerComponent,
+        FormattedNumberInputDirective,
+        FormattedCurrencyInputDirective,
+        SuccessMessagingComponent
+    ],
+    imports: [CommonModule, MaterialModule, NgxTranslateModule, ReactiveFormsModule],
+    providers: [{ provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],
+    exports: [
+        LoadingComponent,
+        ErrorMessagingComponent,
+        YesNoDialogComponent,
+        FormattedNumberPipe,
+        FormattedCurrencyPipe,
+        MatDatepickerComponent,
+        FormattedNumberInputDirective,
+        FormattedCurrencyInputDirective,
+        SuccessMessagingComponent
+    ]
 })
 export class CoreModule {}
