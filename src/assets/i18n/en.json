@@ -70,15 +70,15 @@
       "new": "Register product",
       "edit": "Edit product"
     },
-    "productCode": "* Product Code",
-    "productName": "* Product Name",
-    "productGenre": "* Product Genre",
+    "productCode": "Product Code",
+    "productName": "Product Name",
+    "productGenre": "Product Genre",
     "productImage": "Product Image",
-    "productSizeStandard": "* Product Size/Standard",
+    "productSizeStandard": "Product Size/Standard",
     "productColor": "Product Color",
-    "productUnitPrice": "* Product Unit Price",
+    "productUnitPrice": "Product Unit Price",
     "endOfSale": "End of Sale",
-    "endOfSaleDate": "* End of Sale Date",
+    "endOfSaleDate": "End of Sale Date",
     "returnButton": "Return",
     "saveButton": {
       "new": "Register",
@@ -119,7 +119,7 @@
   },
   "dummyPurchasingPage": {
     "title": "Purchase registration (for test)",
-    "productCode": "* Product Code",
+    "productCode": "Product Code",
     "productName": "Product Name",
     "productGenre": "Product Genre",
     "productImage": "Product Image",
@@ -127,8 +127,8 @@
     "productColor": "Product Color",
     "productPurchaseUnitPrice": "Product Purchase Unit Price",
     "productStockQuantity": "Product Stock Quantity",
-    "productPurchaseName": "* Product Purchase Name",
-    "productPurchaseQuantity": "* Product Purchase Quantity",
+    "productPurchaseName": "Product Purchase Name",
+    "productPurchaseQuantity": "Product Purchase Quantity",
     "productPurchaseAmount": "Product Purchase Amount",
     "saveButton": "Register",
     "validationError": {
@@ -148,7 +148,7 @@
   },
   "stockRegisteringPage": {
     "title": "Stock registration",
-    "productCode": "* Product Code",
+    "productCode": "Product Code",
     "productName": "Product Name",
     "productGenre": "Product Genre",
     "productImage": "Product Image",
@@ -156,7 +156,7 @@
     "productColor": "Product Color",
     "productPurchaseUnitPrice": "Product Purchase Unit Price",
     "productStockQuantity": "Product Stock Quantity",
-    "addStockQuantity": "* Add Stock Quantity",
+    "addStockQuantity": "Add Stock Quantity",
     "saveButton": "Register",
     "validationError": {
       "productNotExistError": "Please re-enter product code."
