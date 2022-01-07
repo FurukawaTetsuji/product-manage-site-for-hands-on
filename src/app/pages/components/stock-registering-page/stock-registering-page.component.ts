@@ -28,7 +28,7 @@ import {
   styleUrls: ['./stock-registering-page.component.scss']
 })
 export class StockRegisteringPageComponent implements OnInit, AfterViewChecked {
-  productCode = new FormControl('');
+  productCode = new FormControl('', [Validators.required]);
   productName = new FormControl('');
   productGenre = new FormControl('');
   productSizeStandard = new FormControl('');
