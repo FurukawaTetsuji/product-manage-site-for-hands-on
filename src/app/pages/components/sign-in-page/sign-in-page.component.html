@@ -6,14 +6,14 @@
     <app-error-messaging></app-error-messaging>
     <div class="sign-in-criteria-wrapper">
       <form [formGroup]="signInForm">
-        <mat-form-field class="form-field">
+        <mat-form-field class="form-field" hideRequiredMarker>
           <input id="signin-user-account" matInput type="text" formControlName="signInUserAccount"
             placeholder="{{ 'signInPage.userAccount' | translate }}">
           <mat-error class="validation-error" *ngIf="signInUserAccount.hasError('required')">
             {{'validationError.required'|translate}}
           </mat-error>
         </mat-form-field>
-        <mat-form-field class="form-field">
+        <mat-form-field class="form-field" hideRequiredMarker>
           <input id="signin-user-password" matInput type="password" formControlName="signInUserPassword"
             placeholder="{{ 'signInPage.userPassword' | translate }}">
           <mat-error class="validation-error" *ngIf="signInUserPassword.hasError('required')">
