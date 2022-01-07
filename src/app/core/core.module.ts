@@ -12,16 +12,15 @@ import { FormattedCurrencyPipe } from './pipes/formatted-currency.pipe';
 import { FormattedNumberPipe } from './pipes/formatted-number.pipe';
 
 @NgModule({
-  declarations: [
-    LoadingComponent,
-    ErrorMessagingComponent,
-    YesNoDialogComponent,
-    FormattedNumberPipe,
-    FormattedCurrencyPipe
-  ],
-  imports: [CommonModule, MaterialModule, NgxTranslateModule],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],
-  entryComponents: [YesNoDialogComponent],
-  exports: [LoadingComponent, ErrorMessagingComponent, YesNoDialogComponent, FormattedNumberPipe, FormattedCurrencyPipe]
+    declarations: [
+        LoadingComponent,
+        ErrorMessagingComponent,
+        YesNoDialogComponent,
+        FormattedNumberPipe,
+        FormattedCurrencyPipe
+    ],
+    imports: [CommonModule, MaterialModule, NgxTranslateModule],
+    providers: [{ provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],
+    exports: [LoadingComponent, ErrorMessagingComponent, YesNoDialogComponent, FormattedNumberPipe, FormattedCurrencyPipe]
 })
 export class CoreModule {}
