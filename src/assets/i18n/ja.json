@@ -70,15 +70,15 @@
       "new": "商品登録",
       "edit": "商品更新"
     },
-    "productCode": "* 商品コード",
-    "productName": "* 商品名",
-    "productGenre": "* ジャンル",
+    "productCode": "商品コード",
+    "productName": "商品名",
+    "productGenre": "ジャンル",
     "productImage": "商品イメージ",
-    "productSizeStandard": "* サイズ・規格",
+    "productSizeStandard": "サイズ・規格",
     "productColor": "色",
-    "productUnitPrice": "* 単価",
+    "productUnitPrice": "単価",
     "endOfSale": "販売終了",
-    "endOfSaleDate": "* 販売終了日",
+    "endOfSaleDate": "販売終了日",
     "returnButton": "戻る",
     "saveButton": {
       "new": "登録",
@@ -119,7 +119,7 @@
   },
   "dummyPurchasingPage": {
     "title": "購入ダミー",
-    "productCode": "* 商品コード",
+    "productCode": "商品コード",
     "productName": "商品名",
     "productGenre": "ジャンル",
     "productImage": "商品イメージ",
@@ -127,8 +127,8 @@
     "productColor": "色",
     "productPurchaseUnitPrice": "購入単価",
     "productStockQuantity": "在庫数",
-    "productPurchaseName": "* 購入者",
-    "productPurchaseQuantity": "* 購入数量",
+    "productPurchaseName": "購入者",
+    "productPurchaseQuantity": "購入数量",
     "productPurchaseAmount": "購入金額",
     "saveButton": "登録",
     "validationError": {
@@ -148,7 +148,7 @@
   },
   "stockRegisteringPage": {
     "title": "在庫登録",
-    "productCode": "* 商品コード",
+    "productCode": "商品コード",
     "productName": "商品名",
     "productGenre": "ジャンル",
     "productImage": "商品イメージ",
@@ -156,7 +156,7 @@
     "productColor": "色",
     "productPurchaseUnitPrice": "購入単価",
     "productStockQuantity": "在庫数",
-    "addStockQuantity": "* 在庫追加数",
+    "addStockQuantity": "在庫追加数",
     "saveButton": "登録",
     "validationError": {
       "productNotExistError": "商品コードを再度入力してください。"
