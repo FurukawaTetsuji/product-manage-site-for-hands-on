@@ -10,10 +10,9 @@ import { YesNoDialogComponent } from './components/yes-no-dialog/yes-no-dialog.c
 import { XhrInterceptor } from './interceptors/xhr.interceptor';
 
 @NgModule({
-  declarations: [LoadingComponent, ErrorMessagingComponent, YesNoDialogComponent],
-  imports: [CommonModule, MaterialModule, NgxTranslateModule],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],
-  entryComponents: [YesNoDialogComponent],
-  exports: [LoadingComponent, ErrorMessagingComponent, YesNoDialogComponent]
+    declarations: [LoadingComponent, ErrorMessagingComponent, YesNoDialogComponent],
+    imports: [CommonModule, MaterialModule, NgxTranslateModule],
+    providers: [{ provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],
+    exports: [LoadingComponent, ErrorMessagingComponent, YesNoDialogComponent]
 })
 export class CoreModule {}
