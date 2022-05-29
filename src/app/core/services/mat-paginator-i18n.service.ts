@@ -34,5 +34,6 @@ export class MatPaginatorI18nService extends MatPaginatorIntl {
     this.itemsPerPageLabel = this.translate.instant(ITEMS_PER_PAGE);
     this.nextPageLabel = this.translate.instant(NEXT_PAGE);
     this.previousPageLabel = this.translate.instant(PREV_PAGE);
+    this.changes.next();
   }
 }
