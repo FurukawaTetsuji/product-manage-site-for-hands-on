@@ -6,7 +6,7 @@ import { HtmlElementUtility } from 'src/app/testing/html-element-utility';
 
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { UntypedFormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
@@ -40,16 +40,14 @@ describe('SignInPageComponent', () => {
         ReactiveFormsModule
       ],
       providers: [
-        UntypedFormBuilder,
+        FormBuilder,
         { provide: AccountService, useValue: accountServiceSpy },
         { provide: TitleI18Service, useValue: titleI18ServiceSpy }
       ],
       declarations: [SignInPageComponent]
     }).compileComponents();
     router = TestBed.inject(Router);
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(SignInPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -102,25 +100,27 @@ describe('SignInPageComponent', () => {
       expect(component[privateMethodName](language)).toEqual(expectedLanguage);
     });
   });
-
   // --------------------------------------------------------------------------------
   // DOM test cases
   // --------------------------------------------------------------------------------
   describe('DOM placeholder', () => {
     it('title', () => {
-      const htmlInputElement: HTMLInputElement = fixture.debugElement.query(By.css('.sign-in-title-wrapper'))
-        .nativeElement;
+      const htmlInputElement: HTMLInputElement = fixture.debugElement.query(
+        By.css('.sign-in-title-wrapper')
+      ).nativeElement;
       expect(htmlInputElement.innerText).toContain('EXAPMLE SITE');
     });
 
     it('sign in user account', () => {
-      const htmlInputElement: HTMLInputElement = fixture.debugElement.query(By.css('#signin-user-account'))
-        .nativeElement;
+      const htmlInputElement: HTMLInputElement = fixture.debugElement.query(
+        By.css('#signin-user-account')
+      ).nativeElement;
       expect(htmlInputElement.dataset.placeholder).toContain('ユーザアカウント');
     });
     it('sign in user password', () => {
-      const htmlInputElement: HTMLInputElement = fixture.debugElement.query(By.css('#signin-user-password'))
-        .nativeElement;
+      const htmlInputElement: HTMLInputElement = fixture.debugElement.query(
+        By.css('#signin-user-password')
+      ).nativeElement;
       expect(htmlInputElement.dataset.placeholder).toContain('パスワード');
     });
     it('saveBtn', () => {

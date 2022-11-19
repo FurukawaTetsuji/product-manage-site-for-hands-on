@@ -8,7 +8,7 @@ import { TitleI18Service } from 'src/app/shared/services/title-i18.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { UntypedFormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -76,7 +76,7 @@ describe('ProductRegisteringPageComponent_edit', () => {
         ReactiveFormsModule
       ],
       providers: [
-        UntypedFormBuilder,
+        FormBuilder,
         FormattedCurrencyPipe,
         { provide: MatDialog, useValue: matDialogSpy },
         { provide: AccountService, useValue: accountServiceSpy },
@@ -95,9 +95,7 @@ describe('ProductRegisteringPageComponent_edit', () => {
       ],
       declarations: [ProductRegisteringPageComponent]
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     accountServiceSpy.getUser.and.returnValue(expectedUser);
     productServiceSpy.getGenres.and.returnValue(of(expectedGenres));
     productServiceSpy.getProduct.and.returnValue(of(expectedProductDto));
@@ -159,7 +157,7 @@ describe('ProductRegisteringPageComponent_edit', () => {
       expect(productServiceSpy.createProduct.calls.count()).toEqual(0);
       expect(productServiceSpy.updateProduct.calls.count()).toEqual(1);
       expect(component[privateMethodExtractResponse]).toHaveBeenCalledOnceWith(expectedProductDtoEndOfSaleDateNull);
-      expect(component.endOfSaleDate.value).toEqual('');
+      expect(component.endOfSaleDate.value).toEqual(null);
     });
   });
 

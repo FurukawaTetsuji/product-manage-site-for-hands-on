@@ -10,7 +10,7 @@ import { HttpParams } from '@angular/common/http';
 import {
     AfterViewChecked, Component, OnInit, QueryList, ViewChild, ViewChildren
 } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormControl } from '@angular/forms';
+import { FormBuilder, FormControl } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -30,11 +30,11 @@ import { ProductPurchaseService } from '../../services/product-purchase.service'
   styleUrls: ['./purchase-history-listing-page.component.scss']
 })
 export class PurchaseHistoryListingPageComponent implements OnInit, AfterViewChecked {
-  productPurchaseName = new UntypedFormControl('', []);
-  productPurchaseDateFrom = new UntypedFormControl('', []);
-  productPurchaseDateTo = new UntypedFormControl('', []);
-  productName = new UntypedFormControl('', []);
-  productCode = new UntypedFormControl('', []);
+  productPurchaseName = new FormControl<string>('', []);
+  productPurchaseDateFrom = new FormControl<Date>(null, []);
+  productPurchaseDateTo = new FormControl<Date>(null, []);
+  productName = new FormControl<string>('', []);
+  productCode = new FormControl<string>('', []);
 
   searchForm = this.formBuilder.group({
     productPurchaseName: this.productPurchaseName,
@@ -73,7 +73,7 @@ export class PurchaseHistoryListingPageComponent implements OnInit, AfterViewChe
 
   constructor(
     private accountService: AccountService,
-    private formBuilder: UntypedFormBuilder,
+    private formBuilder: FormBuilder,
     private loadingService: LoadingService,
     private productPurchaseService: ProductPurchaseService,
     private titleI18Service: TitleI18Service,
@@ -130,7 +130,7 @@ export class PurchaseHistoryListingPageComponent implements OnInit, AfterViewChe
    * Received event from child date from
    * @param eventData event data
    */
-  receivedEventFromChildFrom(eventData: string): void {
+  receivedEventFromChildFrom(eventData: Date): void {
     this.productPurchaseDateFrom.setValue(eventData);
   }
 
@@ -138,7 +138,7 @@ export class PurchaseHistoryListingPageComponent implements OnInit, AfterViewChe
    * Received event from child date to
    * @param eventData event data
    */
-  receivedEventFromChildTo(eventData: string): void {
+  receivedEventFromChildTo(eventData: Date): void {
     this.productPurchaseDateTo.setValue(eventData);
   }
   // --------------------------------------------------------------------------------
@@ -186,8 +186,8 @@ export class PurchaseHistoryListingPageComponent implements OnInit, AfterViewChe
 
   private clearSearchConditions(): void {
     this.productPurchaseName.setValue('');
-    this.productPurchaseDateFrom.setValue('');
-    this.productPurchaseDateTo.setValue('');
+    this.productPurchaseDateFrom.setValue(null);
+    this.productPurchaseDateTo.setValue(null);
     this.matDatePickerComponents.map((matDatePickerComponent) => matDatePickerComponent.reset());
     this.productName.setValue('');
     this.productCode.setValue('');

@@ -8,7 +8,7 @@ import { LoadingService } from 'src/app/core/services/loading.service';
 import { TitleI18Service } from 'src/app/shared/services/title-i18.service';
 
 import { AfterViewChecked, Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -28,18 +28,18 @@ import {
   styleUrls: ['./stock-registering-page.component.scss']
 })
 export class StockRegisteringPageComponent implements OnInit, AfterViewChecked {
-  productCode = new UntypedFormControl('', [Validators.required]);
-  productName = new UntypedFormControl('');
-  productGenre = new UntypedFormControl('');
-  productSizeStandard = new UntypedFormControl('');
-  productStockQuantity = new UntypedFormControl('');
-  addProductStockQuantity = new UntypedFormControl('', [
+  productCode = new FormControl<string>('', [Validators.required]);
+  productName = new FormControl<string>('');
+  productGenre = new FormControl<string>('');
+  productSizeStandard = new FormControl<string>('');
+  productStockQuantity = new FormControl<string>('');
+  addProductStockQuantity = new FormControl<string>('', [
     Validators.required,
     Validators.min(1),
     Validators.max(99999999),
     Validators.pattern(RegexConst.SINGLE_BYTE_NUMERIC_COMMA_PERIOD_SPACE)
   ]);
-  productImage = new UntypedFormControl(null);
+  productImage = new FormControl<string>(null);
 
   registeringForm = this.formBuilder.group(
     {
@@ -60,7 +60,7 @@ export class StockRegisteringPageComponent implements OnInit, AfterViewChecked {
   locale: string = this.accountService.getUser().userLocale;
 
   constructor(
-    private formBuilder: UntypedFormBuilder,
+    private formBuilder: FormBuilder,
     private loadingService: LoadingService,
     private productStockService: ProductStockService,
     private accountService: AccountService,

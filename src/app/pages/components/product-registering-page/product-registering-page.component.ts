@@ -1,4 +1,4 @@
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import {
     YesNoDialogComponent
 } from 'src/app/core/components/yes-no-dialog/yes-no-dialog.component';
@@ -11,7 +11,7 @@ import { RegexConst } from 'src/app/pages/constants/regex-const';
 import { TitleI18Service } from 'src/app/shared/services/title-i18.service';
 
 import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -31,22 +31,25 @@ import {
   styleUrls: ['./product-registering-page.component.scss']
 })
 export class ProductRegisteringPageComponent implements OnInit, AfterViewChecked {
-  productSeq = new UntypedFormControl('');
-  productCode = new UntypedFormControl('', [Validators.required, Validators.pattern(RegexConstCore.SINGLE_BYTE_ALPHANUMERIC)]);
-  productName = new UntypedFormControl('', [Validators.required]);
-  productGenre = new UntypedFormControl('', [Validators.required]);
-  productSizeStandard = new UntypedFormControl('', [Validators.required]);
-  productColor = new UntypedFormControl('');
-  productUnitPrice = new UntypedFormControl('', [
+  productSeq = new FormControl<number>(null);
+  productCode = new FormControl<string>('', [
+    Validators.required,
+    Validators.pattern(RegexConstCore.SINGLE_BYTE_ALPHANUMERIC)
+  ]);
+  productName = new FormControl<string>('', [Validators.required]);
+  productGenre = new FormControl<string>('', [Validators.required]);
+  productSizeStandard = new FormControl<string>('', [Validators.required]);
+  productColor = new FormControl<string>('');
+  productUnitPrice = new FormControl<string>('', [
     Validators.required,
     Validators.min(1),
     Validators.max(99999999),
     Validators.pattern(RegexConstCore.SINGLE_BYTE_NUMERIC_COMMA_PERIOD_SPACE)
   ]);
-  endOfSale = new UntypedFormControl(false);
-  endOfSaleDate = new UntypedFormControl('');
-  productImage = new UntypedFormControl(null);
-  updateDate = new UntypedFormControl(null);
+  endOfSale = new FormControl<boolean>(false);
+  endOfSaleDate = new FormControl<Date>(null);
+  productImage = new FormControl<string>(null);
+  updateDate = new FormControl<Date>(null);
 
   registeringForm = this.formBuilder.group(
     {
@@ -85,7 +88,7 @@ export class ProductRegisteringPageComponent implements OnInit, AfterViewChecked
   isNew = this.routingService.router.url === UrlConst.SLASH + UrlConst.PATH_PRODUCT_REGISTERING_NEW;
 
   constructor(
-    private formBuilder: UntypedFormBuilder,
+    private formBuilder: FormBuilder,
     private loadingService: LoadingService,
     private productService: ProductService,
     private accountService: AccountService,
@@ -177,7 +180,7 @@ export class ProductRegisteringPageComponent implements OnInit, AfterViewChecked
    * Received event from child
    * @param eventData entered end of sele date
    */
-  receivedEventFromChild(eventData: string): void {
+  receivedEventFromChild(eventData: Date): void {
     this.endOfSaleDate.setValue(eventData);
   }
 
@@ -185,7 +188,7 @@ export class ProductRegisteringPageComponent implements OnInit, AfterViewChecked
    * Resets end of sale date
    */
   resetEndOfSaleDate(): void {
-    this.endOfSaleDate.setValue('');
+    this.endOfSaleDate.setValue(null);
   }
   // --------------------------------------------------------------------------------
   // private methods
@@ -259,7 +262,7 @@ export class ProductRegisteringPageComponent implements OnInit, AfterViewChecked
           .replace(RegexConstCore.HalfWidthComma, RegexConstCore.HalfWidthPeriod)
       ),
       endOfSale: this.endOfSale.value,
-      endOfSaleDate: this.endOfSaleDate.value === '' ? null : this.endOfSaleDate.value,
+      endOfSaleDate: this.endOfSaleDate.value,
       productImage: this.productImage.value,
       updateDate: null
     };
@@ -286,7 +289,7 @@ export class ProductRegisteringPageComponent implements OnInit, AfterViewChecked
       this.formattedCurrencyPipe.transform(productDto.productUnitPrice.toString(), this.locale, this.currency)
     );
     this.endOfSale.setValue(productDto.endOfSale);
-    this.endOfSaleDate.setValue(productDto.endOfSaleDate ? productDto.endOfSaleDate : '');
+    this.endOfSaleDate.setValue(productDto.endOfSaleDate);
     this.productImage.setValue(productDto.productImage);
     this.updateDate.setValue(productDto.updateDate);
   }

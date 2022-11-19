@@ -1,14 +1,14 @@
-import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 import { EndOfSaleEndOfSaleDateValidator } from './end-of-sale-end-of-sale-date-validator';
 
 const END_OF_SALE_DATE = 'endOfSaleDate';
 
 describe('EndOfSaleEndOfSaleDateValidator', () => {
-  const formBuilder: UntypedFormBuilder = new UntypedFormBuilder();
-  const testingForm: UntypedFormGroup = formBuilder.group({
-    endOfSale: new UntypedFormControl(''),
-    endOfSaleDate: new UntypedFormControl('')
+  const formBuilder: FormBuilder = new FormBuilder();
+  const testingForm: FormGroup = formBuilder.group({
+    endOfSale: new FormControl<boolean>(false),
+    endOfSaleDate: new FormControl<Date>(null)
   });
 
   describe('#validate', () => {

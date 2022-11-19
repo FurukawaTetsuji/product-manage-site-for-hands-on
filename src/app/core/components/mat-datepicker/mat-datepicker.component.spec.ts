@@ -1,11 +1,10 @@
 import { HttpLoaderFactory } from 'src/app/ngx-translate/ngx-translate.module';
 
-import { formatDate } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { UntypedFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatNativeDateModule, NativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { By } from '@angular/platform-browser';
@@ -14,8 +13,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import { MatDatepickerComponent } from './mat-datepicker.component';
 
-const expectedDate = '2021/01/01';
-const temporaryValue = '2022/12/31';
+const expectedDate = new Date('2021/01/01');
+const temporaryDate = new Date('2022/12/31');
 
 describe('MatDatepickerComponent', () => {
   let component: MatDatepickerComponent;
@@ -38,12 +37,10 @@ describe('MatDatepickerComponent', () => {
           }
         })
       ],
-      providers: [UntypedFormBuilder, NativeDateAdapter],
+      providers: [FormBuilder, NativeDateAdapter],
       declarations: [MatDatepickerComponent]
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(MatDatepickerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -60,11 +57,11 @@ describe('MatDatepickerComponent', () => {
       it('should set initial value', () => {
         component.initialValue = expectedDate;
         component.ngOnInit();
-        expect(formatDate(component.date.value, 'yyyy/MM/dd', 'ja-JP')).toEqual(expectedDate);
+        expect(component.date.value).toEqual(expectedDate);
       });
       it('should not set initial value', () => {
         component.ngOnInit();
-        expect(component.date.value).toEqual('');
+        expect(component.date.value).toEqual(null);
       });
     });
 
@@ -87,14 +84,14 @@ describe('MatDatepickerComponent', () => {
   describe('#reset', () => {
     it('Should return to the initial value', () => {
       component.initialValue = expectedDate;
-      component.date.setValue(new Date(temporaryValue));
+      component.date.setValue(temporaryDate);
       component.reset();
-      expect(formatDate(component.date.value, 'yyyy/MM/dd', 'ja-JP')).toEqual(expectedDate);
+      expect(component.date.value).toEqual(expectedDate);
     });
     it('Should return to empty', () => {
-      component.date.setValue(new Date(temporaryValue));
+      component.date.setValue(temporaryDate);
       component.reset();
-      expect(component.date.value).toEqual('');
+      expect(component.date.value).toEqual(null);
     });
   });
 

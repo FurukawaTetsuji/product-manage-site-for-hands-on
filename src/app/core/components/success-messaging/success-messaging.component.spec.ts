@@ -22,9 +22,7 @@ describe('SuccessMessagingComponent', () => {
       providers: [{ provide: SuccessMessagingService, useValue: successMessagingServiceSpy }],
       declarations: [SuccessMessagingComponent]
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(SuccessMessagingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

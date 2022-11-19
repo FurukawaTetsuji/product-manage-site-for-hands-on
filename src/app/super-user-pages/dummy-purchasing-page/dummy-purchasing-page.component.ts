@@ -25,7 +25,7 @@ import {
 import { TitleI18Service } from 'src/app/shared/services/title-i18.service';
 
 import { AfterViewChecked, Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -35,21 +35,21 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./dummy-purchasing-page.component.scss']
 })
 export class DummyPurchasingPageComponent implements OnInit, AfterViewChecked {
-  productCode = new UntypedFormControl('', [Validators.required]);
-  productName = new UntypedFormControl('');
-  productGenre = new UntypedFormControl('');
-  productSizeStandard = new UntypedFormControl('');
-  productPurchaseUnitPrice = new UntypedFormControl('');
-  productStockQuantity = new UntypedFormControl('');
-  productPurchaseName = new UntypedFormControl('', [Validators.required]);
-  productPurchaseQuantity = new UntypedFormControl('', [
+  productCode = new FormControl<string>('', [Validators.required]);
+  productName = new FormControl<string>('');
+  productGenre = new FormControl<string>('');
+  productSizeStandard = new FormControl<string>('');
+  productPurchaseUnitPrice = new FormControl<string>('');
+  productStockQuantity = new FormControl<string>('');
+  productPurchaseName = new FormControl<string>('', [Validators.required]);
+  productPurchaseQuantity = new FormControl<string>('', [
     Validators.required,
     Validators.min(1),
     Validators.max(99999999),
     Validators.pattern(RegexConst.SINGLE_BYTE_NUMERIC_COMMA_PERIOD_SPACE)
   ]);
-  productPurchaseAmount = new UntypedFormControl('');
-  productImage = new UntypedFormControl(null);
+  productPurchaseAmount = new FormControl<string>('');
+  productImage = new FormControl<string>(null);
 
   registeringForm = this.formBuilder.group(
     {
@@ -77,7 +77,7 @@ export class DummyPurchasingPageComponent implements OnInit, AfterViewChecked {
   currency: string = this.accountService.getUser().userCurrency;
 
   constructor(
-    private formBuilder: UntypedFormBuilder,
+    private formBuilder: FormBuilder,
     private loadingService: LoadingService,
     private productPurchaseService: ProductPurchaseService,
     private accountService: AccountService,

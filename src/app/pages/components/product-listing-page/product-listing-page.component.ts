@@ -6,7 +6,7 @@ import { TitleI18Service } from 'src/app/shared/services/title-i18.service';
 
 import { HttpParams } from '@angular/common/http';
 import { AfterViewChecked, AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormControl } from '@angular/forms';
+import { FormBuilder, FormControl } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -27,7 +27,7 @@ import { SearchParamsService } from '../../services/search-params.service';
 export class ProductListingPageComponent implements OnInit, AfterViewChecked, AfterViewInit {
   constructor(
     private accountService: AccountService,
-    private formBuilder: UntypedFormBuilder,
+    private formBuilder: FormBuilder,
     private loadingService: LoadingService,
     private productService: ProductService,
     private routingService: RoutingService,
@@ -36,10 +36,10 @@ export class ProductListingPageComponent implements OnInit, AfterViewChecked, Af
     public translateService: TranslateService
   ) {}
 
-  productName = new UntypedFormControl('', []);
-  productCode = new UntypedFormControl('', []);
-  productGenre = new UntypedFormControl('', []);
-  endOfSale = new UntypedFormControl(false, []);
+  productName = new FormControl<string>('', []);
+  productCode = new FormControl<string>('', []);
+  productGenre = new FormControl<string>('', []);
+  endOfSale = new FormControl<boolean>(false, []);
 
   searchForm = this.formBuilder.group({
     productName: this.productName,

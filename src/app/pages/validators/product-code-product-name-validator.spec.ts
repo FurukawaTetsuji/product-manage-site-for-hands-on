@@ -1,14 +1,14 @@
-import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 import { ProductCodeProductNameValidator } from './product-code-product-name-validator';
 
 const PRODUCT_CODE = 'productCode';
 
 describe('ProductCodeProductNameValidator', () => {
-  const formBuilder: UntypedFormBuilder = new UntypedFormBuilder();
-  const testingForm: UntypedFormGroup = formBuilder.group({
-    productCode: new UntypedFormControl(''),
-    productName: new UntypedFormControl('')
+  const formBuilder: FormBuilder = new FormBuilder();
+  const testingForm: FormGroup = formBuilder.group({
+    productCode: new FormControl<string>(''),
+    productName: new FormControl<string>('')
   });
 
   describe('#validate', () => {
