@@ -11,7 +11,7 @@ import { HtmlElementUtility } from 'src/app/testing/html-element-utility';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { UntypedFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -80,7 +80,7 @@ describe('PurchaseHistoryListingPageComponent', () => {
         NgxUpperCaseDirectiveModule
       ],
       providers: [
-        FormBuilder,
+        UntypedFormBuilder,
         { provide: AccountService, useValue: accountServiceSpy },
         { provide: ProductPurchaseService, useValue: productPurchaseServiceSpy },
         { provide: TitleI18Service, useValue: titleI18ServiceSpy }

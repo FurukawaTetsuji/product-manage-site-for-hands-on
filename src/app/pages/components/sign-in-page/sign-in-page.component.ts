@@ -4,7 +4,7 @@ import { RoutingService } from 'src/app/core/services/routing.service';
 import { TitleI18Service } from 'src/app/shared/services/title-i18.service';
 
 import { AfterViewChecked, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
 import { UrlConst } from '../../constants/url-const';
@@ -19,8 +19,8 @@ import { AccountService } from '../../services/account.service';
   styleUrls: ['./sign-in-page.component.scss']
 })
 export class SignInPageComponent implements OnInit, AfterViewChecked {
-  signInUserAccount = new FormControl('', [Validators.required]);
-  signInUserPassword = new FormControl('', [Validators.required]);
+  signInUserAccount = new UntypedFormControl('', [Validators.required]);
+  signInUserPassword = new UntypedFormControl('', [Validators.required]);
 
   signInForm = this.formBuilder.group({
     signInUserAccount: this.signInUserAccount,
@@ -29,7 +29,7 @@ export class SignInPageComponent implements OnInit, AfterViewChecked {
 
   constructor(
     private accountService: AccountService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private routingService: RoutingService,
     private loadingService: LoadingService,
     private titleI18Service: TitleI18Service,

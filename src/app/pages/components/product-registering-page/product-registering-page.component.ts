@@ -11,7 +11,7 @@ import { RegexConst } from 'src/app/pages/constants/regex-const';
 import { TitleI18Service } from 'src/app/shared/services/title-i18.service';
 
 import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -31,22 +31,22 @@ import {
   styleUrls: ['./product-registering-page.component.scss']
 })
 export class ProductRegisteringPageComponent implements OnInit, AfterViewChecked {
-  productSeq = new FormControl('');
-  productCode = new FormControl('', [Validators.required, Validators.pattern(RegexConstCore.SINGLE_BYTE_ALPHANUMERIC)]);
-  productName = new FormControl('', [Validators.required]);
-  productGenre = new FormControl('', [Validators.required]);
-  productSizeStandard = new FormControl('', [Validators.required]);
-  productColor = new FormControl('');
-  productUnitPrice = new FormControl('', [
+  productSeq = new UntypedFormControl('');
+  productCode = new UntypedFormControl('', [Validators.required, Validators.pattern(RegexConstCore.SINGLE_BYTE_ALPHANUMERIC)]);
+  productName = new UntypedFormControl('', [Validators.required]);
+  productGenre = new UntypedFormControl('', [Validators.required]);
+  productSizeStandard = new UntypedFormControl('', [Validators.required]);
+  productColor = new UntypedFormControl('');
+  productUnitPrice = new UntypedFormControl('', [
     Validators.required,
     Validators.min(1),
     Validators.max(99999999),
     Validators.pattern(RegexConstCore.SINGLE_BYTE_NUMERIC_COMMA_PERIOD_SPACE)
   ]);
-  endOfSale = new FormControl(false);
-  endOfSaleDate = new FormControl('');
-  productImage = new FormControl(null);
-  updateDate = new FormControl(null);
+  endOfSale = new UntypedFormControl(false);
+  endOfSaleDate = new UntypedFormControl('');
+  productImage = new UntypedFormControl(null);
+  updateDate = new UntypedFormControl(null);
 
   registeringForm = this.formBuilder.group(
     {
@@ -85,7 +85,7 @@ export class ProductRegisteringPageComponent implements OnInit, AfterViewChecked
   isNew = this.routingService.router.url === UrlConst.SLASH + UrlConst.PATH_PRODUCT_REGISTERING_NEW;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private loadingService: LoadingService,
     private productService: ProductService,
     private accountService: AccountService,

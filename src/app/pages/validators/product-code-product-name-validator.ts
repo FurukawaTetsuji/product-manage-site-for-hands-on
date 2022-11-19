@@ -1,8 +1,8 @@
-import { FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { UntypedFormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 const PRODUCT_CODE = 'productCode';
 const PRODUCT_NAME = 'productName';
-export const ProductCodeProductNameValidator: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
+export const ProductCodeProductNameValidator: ValidatorFn = (control: UntypedFormGroup): ValidationErrors | null => {
   const productCode = control.get(PRODUCT_CODE).value;
   const productName = control.get(PRODUCT_NAME).value;
 

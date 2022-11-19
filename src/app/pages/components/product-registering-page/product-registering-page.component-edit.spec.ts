@@ -8,7 +8,7 @@ import { TitleI18Service } from 'src/app/shared/services/title-i18.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { UntypedFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -76,7 +76,7 @@ describe('ProductRegisteringPageComponent_edit', () => {
         ReactiveFormsModule
       ],
       providers: [
-        FormBuilder,
+        UntypedFormBuilder,
         FormattedCurrencyPipe,
         { provide: MatDialog, useValue: matDialogSpy },
         { provide: AccountService, useValue: accountServiceSpy },

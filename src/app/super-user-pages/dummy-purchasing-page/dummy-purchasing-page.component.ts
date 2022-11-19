@@ -25,7 +25,7 @@ import {
 import { TitleI18Service } from 'src/app/shared/services/title-i18.service';
 
 import { AfterViewChecked, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -35,21 +35,21 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./dummy-purchasing-page.component.scss']
 })
 export class DummyPurchasingPageComponent implements OnInit, AfterViewChecked {
-  productCode = new FormControl('', [Validators.required]);
-  productName = new FormControl('');
-  productGenre = new FormControl('');
-  productSizeStandard = new FormControl('');
-  productPurchaseUnitPrice = new FormControl('');
-  productStockQuantity = new FormControl('');
-  productPurchaseName = new FormControl('', [Validators.required]);
-  productPurchaseQuantity = new FormControl('', [
+  productCode = new UntypedFormControl('', [Validators.required]);
+  productName = new UntypedFormControl('');
+  productGenre = new UntypedFormControl('');
+  productSizeStandard = new UntypedFormControl('');
+  productPurchaseUnitPrice = new UntypedFormControl('');
+  productStockQuantity = new UntypedFormControl('');
+  productPurchaseName = new UntypedFormControl('', [Validators.required]);
+  productPurchaseQuantity = new UntypedFormControl('', [
     Validators.required,
     Validators.min(1),
     Validators.max(99999999),
     Validators.pattern(RegexConst.SINGLE_BYTE_NUMERIC_COMMA_PERIOD_SPACE)
   ]);
-  productPurchaseAmount = new FormControl('');
-  productImage = new FormControl(null);
+  productPurchaseAmount = new UntypedFormControl('');
+  productImage = new UntypedFormControl(null);
 
   registeringForm = this.formBuilder.group(
     {
@@ -77,7 +77,7 @@ export class DummyPurchasingPageComponent implements OnInit, AfterViewChecked {
   currency: string = this.accountService.getUser().userCurrency;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private loadingService: LoadingService,
     private productPurchaseService: ProductPurchaseService,
     private accountService: AccountService,

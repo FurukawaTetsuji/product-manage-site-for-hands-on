@@ -1,4 +1,4 @@
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 import {
     PurchaseQuantityStockQuantityValidator
@@ -8,10 +8,10 @@ const PRODUCT_PURCHASE_QUANTITY = 'productPurchaseQuantity';
 const LOCALE = 'ja-JP';
 
 describe('PurchaseQuantityStockQuantityValidator', () => {
-  const formBuilder: FormBuilder = new FormBuilder();
-  const testingForm: FormGroup = formBuilder.group({
-    productPurchaseQuantity: new FormControl(''),
-    productStockQuantity: new FormControl('')
+  const formBuilder: UntypedFormBuilder = new UntypedFormBuilder();
+  const testingForm: UntypedFormGroup = formBuilder.group({
+    productPurchaseQuantity: new UntypedFormControl(''),
+    productStockQuantity: new UntypedFormControl('')
   });
 
   describe('#validate', () => {

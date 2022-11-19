@@ -10,7 +10,7 @@ import { HttpParams } from '@angular/common/http';
 import {
     AfterViewChecked, Component, OnInit, QueryList, ViewChild, ViewChildren
 } from '@angular/core';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -30,11 +30,11 @@ import { ProductPurchaseService } from '../../services/product-purchase.service'
   styleUrls: ['./purchase-history-listing-page.component.scss']
 })
 export class PurchaseHistoryListingPageComponent implements OnInit, AfterViewChecked {
-  productPurchaseName = new FormControl('', []);
-  productPurchaseDateFrom = new FormControl('', []);
-  productPurchaseDateTo = new FormControl('', []);
-  productName = new FormControl('', []);
-  productCode = new FormControl('', []);
+  productPurchaseName = new UntypedFormControl('', []);
+  productPurchaseDateFrom = new UntypedFormControl('', []);
+  productPurchaseDateTo = new UntypedFormControl('', []);
+  productName = new UntypedFormControl('', []);
+  productCode = new UntypedFormControl('', []);
 
   searchForm = this.formBuilder.group({
     productPurchaseName: this.productPurchaseName,
@@ -73,7 +73,7 @@ export class PurchaseHistoryListingPageComponent implements OnInit, AfterViewChe
 
   constructor(
     private accountService: AccountService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private loadingService: LoadingService,
     private productPurchaseService: ProductPurchaseService,
     private titleI18Service: TitleI18Service,

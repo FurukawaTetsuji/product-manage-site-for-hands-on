@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { UntypedFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatNativeDateModule, NativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { By } from '@angular/platform-browser';
@@ -38,7 +38,7 @@ describe('MatDatepickerComponent', () => {
           }
         })
       ],
-      providers: [FormBuilder, NativeDateAdapter],
+      providers: [UntypedFormBuilder, NativeDateAdapter],
       declarations: [MatDatepickerComponent]
     }).compileComponents();
   });

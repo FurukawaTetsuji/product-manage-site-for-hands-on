@@ -1,12 +1,12 @@
 import { FormattedNumberPipe } from 'src/app/core/pipes/formatted-number.pipe';
 
-import { FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { UntypedFormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 const PRODUCT_STOCK_QUANTITY = 'productStockQuantity';
 const PRODUCT_PURCHASE_QUANTITY = 'productPurchaseQuantity';
 
 export function PurchaseQuantityStockQuantityValidator(locale: string): ValidatorFn {
-  return (control: FormGroup): ValidationErrors | null => {
+  return (control: UntypedFormGroup): ValidationErrors | null => {
     const productStockQuantity: string = control.get(PRODUCT_STOCK_QUANTITY).value;
     const productPurchaseQuantity: string = control.get(PRODUCT_PURCHASE_QUANTITY).value;
     if (!productStockQuantity || !productPurchaseQuantity) {

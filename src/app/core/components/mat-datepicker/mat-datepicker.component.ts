@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 import { DateAdapter } from '@angular/material/core';
 
 @Component({
@@ -14,12 +14,12 @@ export class MatDatepickerComponent implements OnInit {
   @Input() locale: string;
   @Output() event: EventEmitter<string> = new EventEmitter<string>();
 
-  date = new FormControl('');
+  date = new UntypedFormControl('');
   myForm = this.formBuilder.group({
     date: this.date
   });
 
-  constructor(private formBuilder: FormBuilder, private adapter: DateAdapter<any>) {}
+  constructor(private formBuilder: UntypedFormBuilder, private adapter: DateAdapter<any>) {}
 
   ngOnInit(): void {
     this.adapter.setLocale(this.locale);
