@@ -114,9 +114,7 @@ describe('ProductRegisteringPageComponent_new', () => {
       declarations: [ProductRegisteringPageComponent]
     }).compileComponents();
     router = TestBed.inject(Router);
-  });
 
-  beforeEach(() => {
     accountServiceSpy.getUser.and.returnValue(expectedUser);
     productServiceSpy.getGenres.and.returnValue(of(expectedGenres));
     productServiceSpy.getProduct.and.returnValue(of(expectedProductDto));
@@ -353,7 +351,7 @@ describe('ProductRegisteringPageComponent_new', () => {
     });
 
     it('end of sale date', () => {
-      const expectedValue = '2021/01/01';
+      const expectedValue = new Date('2021/01/01');
       component.receivedEventFromChild(expectedValue);
       fixture.detectChanges();
       expect(component.endOfSaleDate.value).toEqual(expectedValue);
@@ -441,7 +439,7 @@ describe('ProductRegisteringPageComponent_new', () => {
       );
       // Clicks checkbox's label
       HtmlElementUtility.clickHtmlElement<typeof component>(fixture, IDS.END_OF_SALE_LABEL);
-      component.receivedEventFromChild(expectedProductDto.endOfSaleDate.toString());
+      component.receivedEventFromChild(expectedProductDto.endOfSaleDate);
       fixture.detectChanges();
 
       const privateMethodName = 'createProductRegisterRequest';
@@ -453,7 +451,7 @@ describe('ProductRegisteringPageComponent_new', () => {
       expect(productRequestDto.productSizeStandard).toEqual(expectedProductDto.productSizeStandard);
       expect(productRequestDto.productColor).toEqual(expectedProductDto.productColor);
       expect(productRequestDto.endOfSale).toBeTruthy();
-      expect(productRequestDto.endOfSaleDate.toString()).toEqual(expectedProductDto.endOfSaleDate.toString());
+      expect(productRequestDto.endOfSaleDate).toEqual(expectedProductDto.endOfSaleDate);
       expect(productRequestDto.updateDate).toBeNull();
     });
     it('Should set correctly on the screen', () => {
