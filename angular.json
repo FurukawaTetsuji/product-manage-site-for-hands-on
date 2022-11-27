@@ -22,7 +22,10 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "styles": [
               "./node_modules/reset-css/reset.css",
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
@@ -92,7 +95,10 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "styles": [
               "./node_modules/reset-css/reset.css",
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
@@ -126,7 +132,6 @@
       }
     }
   },
-  "defaultProject": "product-manage-site-for-hands-on",
   "cli": {
     "analytics": "86ed49ee-0c02-418c-ae45-fe2c49113923"
   }
