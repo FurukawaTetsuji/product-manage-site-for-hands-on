@@ -29,9 +29,7 @@ describe('SidenavComponent', () => {
       declarations: [SidenavComponent]
     }).compileComponents();
     router = TestBed.inject(Router);
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(SidenavComponent);
     component = fixture.componentInstance;
     // Commented out the following because an error occurred in the 'should create' test.

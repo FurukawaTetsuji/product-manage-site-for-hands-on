@@ -10,9 +10,7 @@ xdescribe('StockRegisteringPageComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [StockRegisteringPageComponent]
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(StockRegisteringPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
