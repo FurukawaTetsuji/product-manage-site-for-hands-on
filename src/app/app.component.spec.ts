@@ -20,9 +20,7 @@ describe('AppComponent', () => {
       declarations: [AppComponent]
     }).compileComponents();
     router = TestBed.inject(Router);
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

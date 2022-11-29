@@ -10,9 +10,7 @@ xdescribe('PurchaseHistoryListingPageComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [PurchaseHistoryListingPageComponent]
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(PurchaseHistoryListingPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

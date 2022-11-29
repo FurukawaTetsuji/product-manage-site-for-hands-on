@@ -7,8 +7,8 @@ const END_OF_SALE_DATE = 'endOfSaleDate';
 describe('EndOfSaleEndOfSaleDateValidator', () => {
   const formBuilder: FormBuilder = new FormBuilder();
   const testingForm: FormGroup = formBuilder.group({
-    endOfSale: new FormControl(''),
-    endOfSaleDate: new FormControl('')
+    endOfSale: new FormControl<boolean>(false),
+    endOfSaleDate: new FormControl<Date>(null)
   });
 
   describe('#validate', () => {
