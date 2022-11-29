@@ -10,9 +10,7 @@ xdescribe('DummyPurchasingPageComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [DummyPurchasingPageComponent]
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(DummyPurchasingPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

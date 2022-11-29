@@ -17,9 +17,7 @@ describe('YesNoDialogComponent', () => {
       providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }],
       declarations: [YesNoDialogComponent]
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(YesNoDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
