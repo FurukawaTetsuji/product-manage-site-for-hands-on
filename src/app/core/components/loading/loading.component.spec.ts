@@ -18,9 +18,7 @@ describe('LoadingComponent', () => {
       declarations: [LoadingComponent]
     }).compileComponents();
     loadingService = TestBed.inject(LoadingService);
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(LoadingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
