@@ -99,9 +99,7 @@ describe('DummyPurchasingPageComponent', () => {
       ],
       declarations: [DummyPurchasingPageComponent]
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     accountServiceSpy.getUser.and.returnValue(expectedUser);
     fixture = TestBed.createComponent(DummyPurchasingPageComponent);
     component = fixture.componentInstance;
@@ -186,22 +184,22 @@ describe('DummyPurchasingPageComponent', () => {
 
   describe('#blurProductPurchaseQuantity', () => {
     it('should not set purchase amount when productPurchaseQuantity is blank', () => {
-      component.productPurchaseUnitPrice.setValue(VALUE_PRODUCT_PURCHASE_UNIT_PRICE);
+      component.productPurchaseUnitPrice.setValue(VALUE_PRODUCT_PURCHASE_UNIT_PRICE_FORMATED);
       component.productPurchaseQuantity.setValue('');
       component.blurProductPurchaseQuantity();
       expect(component.productPurchaseAmount.value).toEqual('');
     });
     it('should not set purchase amount when productPurchaseQuantity is not numeric', () => {
-      component.productPurchaseUnitPrice.setValue(VALUE_PRODUCT_PURCHASE_UNIT_PRICE);
+      component.productPurchaseUnitPrice.setValue(VALUE_PRODUCT_PURCHASE_UNIT_PRICE_FORMATED);
       component.productPurchaseQuantity.setValue('a');
       component.blurProductPurchaseQuantity();
       expect(component.productPurchaseAmount.value).toEqual('');
     });
     it('should set purchase amount', () => {
-      component.productPurchaseUnitPrice.setValue(VALUE_PRODUCT_PURCHASE_UNIT_PRICE);
-      component.productPurchaseQuantity.setValue(1);
+      component.productPurchaseUnitPrice.setValue(VALUE_PRODUCT_PURCHASE_UNIT_PRICE_FORMATED);
+      component.productPurchaseQuantity.setValue('1');
       component.blurProductPurchaseQuantity();
-      expect(component.productPurchaseAmount.value).toEqual(VALUE_PRODUCT_PURCHASE_UNIT_PRICE_FORMATED);
+      expect(component.productPurchaseAmount.value).toEqual(VALUE_PRODUCT_PURCHASE_QUANTITY_FORMATED);
     });
   });
   // --------------------------------------------------------------------------------

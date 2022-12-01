@@ -23,9 +23,7 @@ describe('ErrorMessagingComponent', () => {
       providers: [{ provide: ErrorMessagingService, useValue: errorMessagingServiceSpy }],
       declarations: [ErrorMessagingComponent]
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(ErrorMessagingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
