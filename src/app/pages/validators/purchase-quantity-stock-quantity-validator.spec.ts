@@ -10,8 +10,8 @@ const LOCALE = 'ja-JP';
 describe('PurchaseQuantityStockQuantityValidator', () => {
   const formBuilder: FormBuilder = new FormBuilder();
   const testingForm: FormGroup = formBuilder.group({
-    productPurchaseQuantity: new FormControl(''),
-    productStockQuantity: new FormControl('')
+    productPurchaseQuantity: new FormControl<string>(''),
+    productStockQuantity: new FormControl<string>('')
   });
 
   describe('#validate', () => {

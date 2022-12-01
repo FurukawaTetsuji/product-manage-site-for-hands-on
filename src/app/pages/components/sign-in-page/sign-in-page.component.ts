@@ -19,8 +19,8 @@ import { AccountService } from '../../services/account.service';
   styleUrls: ['./sign-in-page.component.scss']
 })
 export class SignInPageComponent implements OnInit, AfterViewChecked {
-  signInUserAccount = new FormControl('', [Validators.required]);
-  signInUserPassword = new FormControl('', [Validators.required]);
+  signInUserAccount = new FormControl<string>('', [Validators.required]);
+  signInUserPassword = new FormControl<string>('', [Validators.required]);
 
   signInForm = this.formBuilder.group({
     signInUserAccount: this.signInUserAccount,
