@@ -95,12 +95,11 @@ describe('ProductRegisteringPageComponent_edit', () => {
       ],
       declarations: [ProductRegisteringPageComponent]
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     accountServiceSpy.getUser.and.returnValue(expectedUser);
     productServiceSpy.getGenres.and.returnValue(of(expectedGenres));
     productServiceSpy.getProduct.and.returnValue(of(expectedProductDto));
+
     fixture = TestBed.createComponent(ProductRegisteringPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -159,7 +158,7 @@ describe('ProductRegisteringPageComponent_edit', () => {
       expect(productServiceSpy.createProduct.calls.count()).toEqual(0);
       expect(productServiceSpy.updateProduct.calls.count()).toEqual(1);
       expect(component[privateMethodExtractResponse]).toHaveBeenCalledOnceWith(expectedProductDtoEndOfSaleDateNull);
-      expect(component.endOfSaleDate.value).toEqual('');
+      expect(component.endOfSaleDate.value).toEqual(null);
     });
   });
 

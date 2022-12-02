@@ -31,10 +31,8 @@ import { PurchaseHistoryListingPageComponent } from './purchase-history-listing-
 
 /** Frequently used values */
 const VALUE_PRODUCT_PURCHASE_NAME = 'productPurchaseName';
-const VALUE_PRODUCT_PURCHASE_DATE_FROM = '2020/1/1';
-const VALUE_PRODUCT_PURCHASE_DATE_TO = '2030/1/1';
-const VALUE_PRODUCT_PURCHASE_DATE_FROM_RECEIVED = 'Wed Jan 01 2020 00:00:00 GMT+0900';
-const VALUE_PRODUCT_PURCHASE_DATE_TO_RECEIVED = 'Tue Jan 01 2030 00:00:00 GMT+0900';
+const VALUE_PRODUCT_PURCHASE_DATE_FROM = new Date('2020/1/1');
+const VALUE_PRODUCT_PURCHASE_DATE_TO = new Date('2030/1/1');
 const VALUE_PRODUCT_PURCHASE_DATE_FROM_ISO = '2019-12-31T15:00:00.000Z';
 const VALUE_PRODUCT_PURCHASE_DATE_TO_ISO = '2030-01-01T15:00:00.000Z';
 const VALUE_PRODUCT_NAME = 'productName';
@@ -69,6 +67,7 @@ describe('PurchaseHistoryListingPageComponent', () => {
     accountServiceSpy = jasmine.createSpyObj('AccountService', ['getUser']);
     titleI18ServiceSpy = jasmine.createSpyObj('TitleI18Service', ['setTitle']);
     productPurchaseServiceSpy = jasmine.createSpyObj('PurchaseService', ['getProductPurchaseHistoryList']);
+
     await TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
       imports: [
@@ -87,11 +86,10 @@ describe('PurchaseHistoryListingPageComponent', () => {
       ],
       declarations: [PurchaseHistoryListingPageComponent, MatDatepickerComponent]
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     accountServiceSpy.getUser.and.returnValue(expectedUser);
     productPurchaseServiceSpy.getProductPurchaseHistoryList.and.returnValue(of(expectedSearchListResponseDto));
+
     fixture = TestBed.createComponent(PurchaseHistoryListingPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -134,8 +132,8 @@ describe('PurchaseHistoryListingPageComponent', () => {
       component.clickClearButton();
 
       expect(component.productPurchaseName.value).toEqual('');
-      expect(component.productPurchaseDateFrom.value).toEqual('');
-      expect(component.productPurchaseDateTo.value).toEqual('');
+      expect(component.productPurchaseDateFrom.value).toEqual(null);
+      expect(component.productPurchaseDateTo.value).toEqual(null);
       expect(component.productName.value).toEqual('');
       expect(component.productCode.value).toEqual('');
       expect(component.matDatePickerComponents.first.reset).toHaveBeenCalled();
@@ -167,15 +165,15 @@ describe('PurchaseHistoryListingPageComponent', () => {
 
   describe('#receivedEventFromChildFrom', () => {
     it('should set date', () => {
-      component.receivedEventFromChildFrom(VALUE_PRODUCT_PURCHASE_DATE_FROM_RECEIVED);
-      expect(component.productPurchaseDateFrom.value).toEqual(VALUE_PRODUCT_PURCHASE_DATE_FROM_RECEIVED);
+      component.receivedEventFromChildFrom(VALUE_PRODUCT_PURCHASE_DATE_FROM);
+      expect(component.productPurchaseDateFrom.value).toEqual(VALUE_PRODUCT_PURCHASE_DATE_FROM);
     });
   });
 
   describe('#receivedEventFromChildTo', () => {
     it('should set date', () => {
-      component.receivedEventFromChildTo(VALUE_PRODUCT_PURCHASE_DATE_TO_RECEIVED);
-      expect(component.productPurchaseDateTo.value).toEqual(VALUE_PRODUCT_PURCHASE_DATE_TO_RECEIVED);
+      component.receivedEventFromChildTo(VALUE_PRODUCT_PURCHASE_DATE_TO);
+      expect(component.productPurchaseDateTo.value).toEqual(VALUE_PRODUCT_PURCHASE_DATE_TO);
     });
   });
   // --------------------------------------------------------------------------------
@@ -224,7 +222,7 @@ describe('PurchaseHistoryListingPageComponent', () => {
       expect(component.productPurchaseName.value).toEqual(expectedValue);
     });
     it('product purchase date from', () => {
-      const expectedValue = VALUE_PRODUCT_PURCHASE_DATE_FROM_RECEIVED;
+      const expectedValue = VALUE_PRODUCT_PURCHASE_DATE_FROM;
       component.receivedEventFromChildFrom(expectedValue);
       fixture.detectChanges();
       expect(component.productPurchaseDateFrom.value).toEqual(expectedValue);
@@ -254,8 +252,8 @@ describe('PurchaseHistoryListingPageComponent', () => {
         '#product-purchase-name',
         VALUE_PRODUCT_PURCHASE_NAME
       );
-      component.receivedEventFromChildFrom(VALUE_PRODUCT_PURCHASE_DATE_FROM_RECEIVED);
-      component.receivedEventFromChildTo(VALUE_PRODUCT_PURCHASE_DATE_TO_RECEIVED);
+      component.receivedEventFromChildFrom(VALUE_PRODUCT_PURCHASE_DATE_FROM);
+      component.receivedEventFromChildTo(VALUE_PRODUCT_PURCHASE_DATE_TO);
 
       HtmlElementUtility.setValueToHTMLInputElement<typeof component>(fixture, IDS.PRODUCT_NAME, VALUE_PRODUCT_NAME);
       HtmlElementUtility.setValueToHTMLInputElement<typeof component>(

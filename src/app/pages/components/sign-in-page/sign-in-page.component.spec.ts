@@ -47,12 +47,11 @@ describe('SignInPageComponent', () => {
       declarations: [SignInPageComponent]
     }).compileComponents();
     router = TestBed.inject(Router);
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(SignInPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
     setupBrowserLanguage('ja');
   });
 
@@ -102,25 +101,27 @@ describe('SignInPageComponent', () => {
       expect(component[privateMethodName](language)).toEqual(expectedLanguage);
     });
   });
-
   // --------------------------------------------------------------------------------
   // DOM test cases
   // --------------------------------------------------------------------------------
   describe('DOM placeholder', () => {
     it('title', () => {
-      const htmlInputElement: HTMLInputElement = fixture.debugElement.query(By.css('.sign-in-title-wrapper'))
-        .nativeElement;
+      const htmlInputElement: HTMLInputElement = fixture.debugElement.query(
+        By.css('.sign-in-title-wrapper')
+      ).nativeElement;
       expect(htmlInputElement.innerText).toContain('EXAPMLE SITE');
     });
 
     it('sign in user account', () => {
-      const htmlInputElement: HTMLInputElement = fixture.debugElement.query(By.css('#signin-user-account'))
-        .nativeElement;
+      const htmlInputElement: HTMLInputElement = fixture.debugElement.query(
+        By.css('#signin-user-account')
+      ).nativeElement;
       expect(htmlInputElement.dataset.placeholder).toContain('ユーザアカウント');
     });
     it('sign in user password', () => {
-      const htmlInputElement: HTMLInputElement = fixture.debugElement.query(By.css('#signin-user-password'))
-        .nativeElement;
+      const htmlInputElement: HTMLInputElement = fixture.debugElement.query(
+        By.css('#signin-user-password')
+      ).nativeElement;
       expect(htmlInputElement.dataset.placeholder).toContain('パスワード');
     });
     it('saveBtn', () => {
