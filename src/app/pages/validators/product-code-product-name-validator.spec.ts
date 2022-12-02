@@ -7,8 +7,8 @@ const PRODUCT_CODE = 'productCode';
 describe('ProductCodeProductNameValidator', () => {
   const formBuilder: FormBuilder = new FormBuilder();
   const testingForm: FormGroup = formBuilder.group({
-    productCode: new FormControl(''),
-    productName: new FormControl('')
+    productCode: new FormControl<string>(''),
+    productName: new FormControl<string>('')
   });
 
   describe('#validate', () => {
