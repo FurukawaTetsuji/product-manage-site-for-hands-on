@@ -86,10 +86,9 @@ describe('StockRegisteringPageComponent', () => {
       ],
       declarations: [StockRegisteringPageComponent]
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     accountServiceSpy.getUser.and.returnValue(expectedUser);
+
     fixture = TestBed.createComponent(StockRegisteringPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

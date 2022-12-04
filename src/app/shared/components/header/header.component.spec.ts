@@ -40,9 +40,7 @@ describe('HeaderComponent', () => {
       declarations: [HeaderComponent]
     }).compileComponents();
     router = TestBed.inject(Router);
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     // Commented out the following because an error occurred in the 'should create' test.
