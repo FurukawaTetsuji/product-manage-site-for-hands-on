@@ -91,13 +91,12 @@ describe('ProductListingPageComponent', () => {
       declarations: [ProductListingPageComponent, FormattedNumberPipe, FormattedCurrencyPipe]
     }).compileComponents();
     router = TestBed.inject(Router);
-  });
 
-  beforeEach(() => {
     accountServiceSpy.getUser.and.returnValue(expectedUser);
     productServiceSpy.getGenres.and.returnValue(of(expectedGenres));
     searchParamsServiceSpy.getProductListingSearchParamsDto.and.returnValue(null);
     productServiceSpy.getProductList.and.returnValue(of(expectedSearchListResponseDto));
+
     fixture = TestBed.createComponent(ProductListingPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

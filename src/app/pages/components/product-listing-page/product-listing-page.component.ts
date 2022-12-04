@@ -36,10 +36,10 @@ export class ProductListingPageComponent implements OnInit, AfterViewChecked, Af
     public translateService: TranslateService
   ) {}
 
-  productName = new FormControl('', []);
-  productCode = new FormControl('', []);
-  productGenre = new FormControl('', []);
-  endOfSale = new FormControl(false, []);
+  productName = new FormControl<string>('', []);
+  productCode = new FormControl<string>('', []);
+  productGenre = new FormControl<string>('', []);
+  endOfSale = new FormControl<boolean>(false, []);
 
   searchForm = this.formBuilder.group({
     productName: this.productName,

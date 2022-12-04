@@ -30,11 +30,11 @@ import { ProductPurchaseService } from '../../services/product-purchase.service'
   styleUrls: ['./purchase-history-listing-page.component.scss']
 })
 export class PurchaseHistoryListingPageComponent implements OnInit, AfterViewChecked {
-  productPurchaseName = new FormControl('', []);
-  productPurchaseDateFrom = new FormControl('', []);
-  productPurchaseDateTo = new FormControl('', []);
-  productName = new FormControl('', []);
-  productCode = new FormControl('', []);
+  productPurchaseName = new FormControl<string>('', []);
+  productPurchaseDateFrom = new FormControl<Date>(null, []);
+  productPurchaseDateTo = new FormControl<Date>(null, []);
+  productName = new FormControl<string>('', []);
+  productCode = new FormControl<string>('', []);
 
   searchForm = this.formBuilder.group({
     productPurchaseName: this.productPurchaseName,
@@ -130,7 +130,7 @@ export class PurchaseHistoryListingPageComponent implements OnInit, AfterViewChe
    * Received event from child date from
    * @param eventData event data
    */
-  receivedEventFromChildFrom(eventData: string): void {
+  receivedEventFromChildFrom(eventData: Date): void {
     this.productPurchaseDateFrom.setValue(eventData);
   }
 
@@ -138,7 +138,7 @@ export class PurchaseHistoryListingPageComponent implements OnInit, AfterViewChe
    * Received event from child date to
    * @param eventData event data
    */
-  receivedEventFromChildTo(eventData: string): void {
+  receivedEventFromChildTo(eventData: Date): void {
     this.productPurchaseDateTo.setValue(eventData);
   }
   // --------------------------------------------------------------------------------
@@ -186,8 +186,8 @@ export class PurchaseHistoryListingPageComponent implements OnInit, AfterViewChe
 
   private clearSearchConditions(): void {
     this.productPurchaseName.setValue('');
-    this.productPurchaseDateFrom.setValue('');
-    this.productPurchaseDateTo.setValue('');
+    this.productPurchaseDateFrom.setValue(null);
+    this.productPurchaseDateTo.setValue(null);
     this.matDatePickerComponents.map((matDatePickerComponent) => matDatePickerComponent.reset());
     this.productName.setValue('');
     this.productCode.setValue('');
